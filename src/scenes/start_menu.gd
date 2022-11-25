@@ -7,6 +7,8 @@ onready var btn_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/ButtonExit
 onready var lbl_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/Label
 onready var pad_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/Padding
 
+onready var SceneTree = get_tree()
+
 func _ready():
 	btn_start.connect("pressed", self, "on_ButtonStart_pressed")
 	btn_exit.connect("pressed", self, "on_ButtonExit_pressed")
@@ -18,7 +20,7 @@ func _ready():
 	btn_exit.connect("mouse_exited", self, "on_ButtonExit_mouse_exited")
 
 func on_ButtonStart_pressed():
-	pass
+	SceneTree.change_scene("res://src/scenes/PlaceholderScene.tscn")
 
 func on_ButtonExit_pressed():
 	get_tree().quit()
