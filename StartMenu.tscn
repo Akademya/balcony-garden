@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.8, 0.988235, 0.996078, 1 )
+color = Color( 0.941176, 0.819608, 0.662745, 1 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 margin_right = 540.0
