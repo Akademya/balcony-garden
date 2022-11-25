@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/start_menu/isometric_balcony.png" type="Texture" id=1]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.8, 0.988235, 0.996078, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 540.0
+margin_bottom = 660.0
+rect_scale = Vector2( 0.163534, 0.163534 )
+texture = ExtResource( 1 )
