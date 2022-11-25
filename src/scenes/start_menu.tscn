@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/start_menu/isometric_balcony.png" type="Texture" id=1]
 [ext_resource path="res://assets/font/press_start_2P.tres" type="DynamicFont" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -36,9 +40,13 @@ margin_top = 66.0
 margin_right = 195.0
 margin_bottom = 88.0
 rect_scale = Vector2( 0.4, 0.4 )
+focus_mode = 0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.65098, 0.65098, 0.65098, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = SubResource( 1 )
+enabled_focus_mode = 0
 text = "Exit"
 flat = true
 
@@ -48,8 +56,12 @@ margin_top = 47.0
 margin_right = 208.0
 margin_bottom = 69.0
 rect_scale = Vector2( 0.4, 0.4 )
+focus_mode = 0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.65098, 0.65098, 0.65098, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = SubResource( 2 )
+enabled_focus_mode = 0
 text = "Start"
 flat = true
