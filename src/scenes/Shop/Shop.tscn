@@ -10,21 +10,29 @@ default_font = ExtResource( 2 )
 [node name="Shop" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -192.0
-margin_bottom = -108.0
 theme = SubResource( 2 )
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 304.0
-margin_bottom = 154.0
-rect_scale = Vector2( 0.5, 0.5 )
+margin_right = 192.0
+margin_bottom = 108.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 379.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 364, 196 )
 tab_align = 0
 
-[node name="Seeds" type="Tabs" parent="TabContainer"]
+[node name="Seeds" type="Tabs" parent="MarginContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -33,92 +41,96 @@ margin_right = -4.0
 margin_bottom = -4.0
 custom_fonts/font = ExtResource( 2 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Seeds"]
-margin_right = 140.0
-margin_bottom = 65.0
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/Seeds"]
+margin_right = 366.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 follow_focus = true
 scroll_horizontal_enabled = false
 
-[node name="VBoxPotatoes" type="VBoxContainer" parent="TabContainer/Seeds/ScrollContainer"]
-margin_right = 292.0
-margin_bottom = 16.0
+[node name="VBoxPotatoes" type="VBoxContainer" parent="MarginContainer/TabContainer/Seeds/ScrollContainer"]
+margin_right = 366.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Seeds/ScrollContainer/VBoxPotatoes"]
-margin_right = 292.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxPotatoes"]
+margin_right = 366.0
 margin_bottom = 16.0
+size_flags_horizontal = 3
 custom_constants/separation = 3
 
-[node name="ShopItemIcon" type="TextureRect" parent="TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
+[node name="ShopItemIcon" type="TextureRect" parent="MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
 margin_right = 16.0
 margin_bottom = 16.0
 texture = ExtResource( 1 )
 
-[node name="ShopItemName" type="Label" parent="TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
+[node name="ShopItemName" type="Label" parent="MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
 margin_left = 19.0
 margin_top = 4.0
-margin_right = 115.0
+margin_right = 224.0
 margin_bottom = 12.0
+size_flags_horizontal = 3
 text = "Potato Seeds"
 
-[node name="Padding" type="Label" parent="TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
-margin_left = 118.0
-margin_top = 4.0
-margin_right = 150.0
-margin_bottom = 12.0
-text = "    "
-
-[node name="ButtonBuy" type="Button" parent="TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
-margin_left = 153.0
-margin_right = 221.0
-margin_bottom = 16.0
-text = "Buy $10"
-
-[node name="ButtonSell" type="Button" parent="TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
-margin_left = 224.0
-margin_right = 292.0
+[node name="ButtonSell" type="Button" parent="MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
+margin_left = 227.0
+margin_right = 295.0
 margin_bottom = 16.0
 text = "Sell $5"
 
-[node name="Drinks" type="Tabs" parent="TabContainer"]
-visible = false
-margin_right = 40.0
-margin_bottom = 24.0
+[node name="ButtonBuy" type="Button" parent="MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxPotatoes/HBoxContainer"]
+margin_left = 298.0
+margin_right = 366.0
+margin_bottom = 16.0
+text = "Buy $10"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Drinks"]
-margin_right = 140.0
-margin_bottom = 65.0
+[node name="Drinks" type="Tabs" parent="MarginContainer/TabContainer"]
+visible = false
+margin_right = 366.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/Drinks"]
+margin_right = 366.0
+margin_bottom = 176.0
 follow_focus = true
 scroll_horizontal_enabled = false
 
-[node name="VBoxWater" type="VBoxContainer" parent="TabContainer/Drinks/ScrollContainer"]
-margin_right = 288.0
-margin_bottom = 16.0
+[node name="VBoxWater" type="VBoxContainer" parent="MarginContainer/TabContainer/Drinks/ScrollContainer"]
+margin_right = 366.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Drinks/ScrollContainer/VBoxWater"]
-margin_right = 12.0
-margin_bottom = 8.0
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxWater"]
+margin_right = 366.0
+margin_bottom = 16.0
 
-[node name="ShopItemIcon" type="TextureRect" parent="TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
-margin_bottom = 8.0
+[node name="ShopItemIcon" type="TextureRect" parent="MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
 texture = ExtResource( 3 )
 
-[node name="ShopItemName" type="Label" parent="TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
-margin_left = 4.0
-margin_right = 4.0
-margin_bottom = 8.0
+[node name="ShopItemName" type="Label" parent="MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
+margin_left = 20.0
+margin_top = 4.0
+margin_right = 302.0
+margin_bottom = 12.0
+size_flags_horizontal = 3
 text = "Water Bottle"
 
-[node name="Padding" type="Label" parent="TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
-margin_left = 118.0
-margin_top = 4.0
-margin_right = 150.0
-margin_bottom = 12.0
-text = "             "
-
-[node name="ButtonBuy" type="Button" parent="TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
-margin_left = 153.0
-margin_right = 221.0
+[node name="ButtonBuy" type="Button" parent="MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxWater/HBoxContainer"]
+margin_left = 306.0
+margin_right = 366.0
 margin_bottom = 16.0
 text = "Buy $2"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 2, 2 )
