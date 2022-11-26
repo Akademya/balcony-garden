@@ -50,15 +50,14 @@ custom_constants/separation = 5
 alignment = 1
 
 [node name="HBoxContainerStart" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 25.0
+margin_top = 32.0
 margin_right = 116.0
 margin_bottom = 47.0
 custom_constants/separation = 0
 
 [node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
-margin_top = 4.0
 margin_right = 16.0
-margin_bottom = 18.0
+margin_bottom = 14.0
 text = "    "
 
 [node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
@@ -69,8 +68,8 @@ text = ">"
 
 [node name="ButtonStart" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
 margin_left = 16.0
-margin_right = 108.0
-margin_bottom = 22.0
+margin_right = 73.0
+margin_bottom = 15.0
 focus_mode = 0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )
@@ -84,13 +83,12 @@ flat = true
 [node name="HBoxContainerExit" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_top = 52.0
 margin_right = 116.0
-margin_bottom = 74.0
+margin_bottom = 67.0
 custom_constants/separation = 0
 
 [node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
-margin_top = 4.0
 margin_right = 16.0
-margin_bottom = 18.0
+margin_bottom = 14.0
 text = "    "
 
 [node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
@@ -101,8 +99,8 @@ text = ">"
 
 [node name="ButtonExit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
 margin_left = 16.0
-margin_right = 92.0
-margin_bottom = 22.0
+margin_right = 64.0
+margin_bottom = 15.0
 focus_mode = 0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )

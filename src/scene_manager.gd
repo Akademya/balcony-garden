@@ -6,6 +6,8 @@ var start_menu_scene = preload("res://src/scenes/start_menu.tscn")
 var room_scene = preload("res://src/scenes/room.tscn")
 var balcony_scene = preload("res://src/scenes/balcony/balcony.tscn")
 
+# SHOULD HAVE USED A SINGLETON FOR ALL THIS :skull:
+
 # Start Global Data (too lazy to use a globally loaded script)
 
 var in_game: bool = false
@@ -52,6 +54,9 @@ func _ready():
 	in_game = true
 	focused_game = true
 
+func increase_water_leve():
+	if (water_level <= 100 - 10):
+		water_level += 10
 
 func _on_tick():
 	if not in_game:

@@ -1,10 +1,13 @@
 extends Area2D
 
+onready var balcony = get_tree().get_nodes_in_group("Balcony")[0]
+
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed():
-		print("Clicked WateringCan")
+		if (balcony.has_method("toggle_water_can")):
+			balcony.toggle_water_can(get_node("Sprite"))
 
 
 func _on_WCArea2D_mouse_entered():
