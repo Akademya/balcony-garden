@@ -16,8 +16,6 @@ var water_level = 100
 var water_rate = 90
 var water_counter = 0
 
-var global_money = 0
-
 var plants = [
 	Utils.Plant.new("carrot"), 
 	Utils.Plant.new("onion"), 
