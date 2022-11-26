@@ -51,7 +51,7 @@ alignment = 1
 
 [node name="HBoxContainerStart" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_top = 25.0
-margin_right = 115.0
+margin_right = 116.0
 margin_bottom = 47.0
 custom_constants/separation = 0
 
@@ -87,7 +87,7 @@ flat = true
 
 [node name="HBoxContainerExit" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_top = 52.0
-margin_right = 115.0
+margin_right = 116.0
 margin_bottom = 74.0
 custom_constants/separation = 0
 
