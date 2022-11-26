@@ -9,6 +9,7 @@ var balcony_scene = preload("res://src/scenes/balcony/balcony.tscn")
 # Start Global Data (too lazy to use a globally loaded script)
 
 var in_game: bool = false
+var focused_game: bool = false
 
 var plants = [
 	[
@@ -52,6 +53,7 @@ func _ready():
 	b.number = 0
 	scene_cont.add_child(b)
 	in_game = true
+	focused_game = true
 
 
 func _on_tick():
@@ -64,7 +66,10 @@ func _on_tick():
 				plant.stage = plant.counter / plant.gcs
 				if (plant.stage > plant.stages - 1):
 					plant.stage = plant.stages - 1
-					plant.sprite.material.set_shader_param("is_on", true)
+					if (focused_game):
+						plant.sprite.material.set_shader_param("is_on", true)
 				else:
-					plant.sprite.material.set_shader_param("is_on", false)
-				plant.sprite.frame = plant.stage
+					if (focused_game):
+						plant.sprite.material.set_shader_param("is_on", false)
+				if (focused_game):
+					plant.sprite.frame = plant.stage
