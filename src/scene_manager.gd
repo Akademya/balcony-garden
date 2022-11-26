@@ -44,13 +44,13 @@ func load_scene(scene_name: String):
 
 func _ready():
 	unload_all_children()
-#	load_scene("start_menu_scene")
+	load_scene("start_menu_scene")
 	
 	# TEST
-	var b = balcony_scene.instance()
-	scene_cont.add_child(b)
-	in_game = true
-	focused_game = true
+#	var b = balcony_scene.instance()
+#	scene_cont.add_child(b)
+#	in_game = true
+#	focused_game = true
 
 func increase_water_leve():
 	if (water_level <= 100 - 10):
