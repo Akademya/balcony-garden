@@ -20,8 +20,8 @@ func _ready():
 	btn_exit.connect("mouse_exited", self, "on_ButtonExit_mouse_exited")
 
 func on_ButtonStart_pressed():
-	if get_parent().has_method("load_scene"):
-		get_parent().load_scene("room_scene")
+	if get_tree().get_nodes_in_group("SceneManager")[0].has_method("load_scene"):
+		get_tree().get_nodes_in_group("SceneManager")[0].load_scene("room_scene")
 
 func on_ButtonExit_pressed():
 	get_tree().quit()

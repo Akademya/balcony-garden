@@ -4,3 +4,7 @@
 
 [node name="SceneManager" type="Node" groups=["SceneManager"]]
 script = ExtResource( 1 )
+
+[node name="SceneCont" type="Node" parent="."]
+
+[node name="HUD" type="Node" parent="."]
