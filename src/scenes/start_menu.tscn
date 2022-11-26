@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/start_menu/isometric_balcony.png" type="Texture" id=1]
-[ext_resource path="res://assets/font/press_start_2P.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/font/press_start_2P_start_menu.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scenes/start_menu.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=2]
@@ -45,7 +45,7 @@ margin_left = 111.0
 margin_top = 45.0
 margin_right = 227.0
 margin_bottom = 144.0
-rect_scale = Vector2( 0.4, 0.4 )
+rect_scale = Vector2( 0.5, 0.5 )
 custom_constants/separation = 5
 alignment = 1
 
