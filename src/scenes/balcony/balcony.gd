@@ -2,12 +2,12 @@ extends Node2D
 
 onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
 
-onready var spot_0 = $Sprites/PlantPos01
-onready var spot_1 = $Sprites/PlantPos02
-onready var spot_2 = $Sprites/PlantPos03
-onready var spot_3 = $Sprites/PlantPos04
-onready var spot_4 = $Sprites/PlantPos05
-onready var spot_5 = $Sprites/PlantPos06
+onready var sp_0 = $Sprites/PlantPos01/Sprite
+onready var sp_1 = $Sprites/PlantPos02/Sprite
+onready var sp_2 = $Sprites/PlantPos03/Sprite
+onready var sp_3 = $Sprites/PlantPos04/Sprite
+onready var sp_4 = $Sprites/PlantPos05/Sprite
+onready var sp_5 = $Sprites/PlantPos06/Sprite
 
 var number: int = 0
 var plants
@@ -18,5 +18,10 @@ func _ready():
 		var plant = plants[i]
 		if plant == null:
 			continue
-		self["spot_" + String(i)].add_child(plant.sprite)
+		var sprite = self["sp_" + String(i)]
+		sprite.material.shader = Utils.pd_shader
+		sprite.texture = plant.texture
+		sprite.hframes = plant.stages
+		sprite.frame = plant.stage
+		plant.sprite = sprite
 	pass
