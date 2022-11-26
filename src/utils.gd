@@ -28,3 +28,17 @@ class Plant:
 		self.sprite.texture = texture
 		self.sprite.hframes = self.stages
 		self.sprite.frame = stage
+
+class ShopItem:
+	var texture
+	var text
+	var sell_price
+	var buy_price
+	var id
+	
+	func _init(texture, text: String, sell_price: int, buy_price: int, id: String):
+		self.texture = texture
+		self.sell_price = sell_price
+		self.buy_price = buy_price
+		self.text = text
+		self.id = id

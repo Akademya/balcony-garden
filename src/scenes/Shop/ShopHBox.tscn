@@ -1,0 +1,30 @@
+[gd_scene format=2]
+
+[node name="HBoxItem" type="HBoxContainer"]
+margin_right = 366.0
+size_flags_horizontal = 3
+custom_constants/separation = 3
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+margin_bottom = 20.0
+
+[node name="ItemName" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 336.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+
+[node name="ButtonSell" type="Button" parent="."]
+margin_left = 339.0
+margin_right = 351.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="ButtonBuy" type="Button" parent="."]
+margin_left = 354.0
+margin_right = 366.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
