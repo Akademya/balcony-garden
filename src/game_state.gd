@@ -1,3 +1,3 @@
 extends Node
 
-var global_money = 0
+var global_money = 10

@@ -31,3 +31,6 @@ margin_right = 366.0
 margin_bottom = 20.0
 focus_mode = 0
 enabled_focus_mode = 0
+
+[connection signal="pressed" from="ButtonSell" to="." method="_on_ButtonSell_pressed"]
+[connection signal="pressed" from="ButtonBuy" to="." method="_on_ButtonBuy_pressed"]
