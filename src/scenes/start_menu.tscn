@@ -62,13 +62,12 @@ text = "    "
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
 visible = false
-margin_left = 16.0
 margin_top = 3.0
-margin_right = 24.0
+margin_right = 16.0
 margin_bottom = 11.0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = ">"
+text = " >"
 
 [node name="ButtonStart" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
 margin_left = 16.0
@@ -99,11 +98,11 @@ text = "    "
 visible = false
 margin_left = 16.0
 margin_top = 3.0
-margin_right = 24.0
+margin_right = 32.0
 margin_bottom = 11.0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = ">"
+text = " >"
 
 [node name="ButtonExit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
 margin_left = 16.0

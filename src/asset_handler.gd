@@ -42,6 +42,3 @@ var plants = {
 		"gcs": 60
 	}
 }
-
-func _ready():
-	pass
