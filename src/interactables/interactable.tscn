@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="Interactable" type="Area2D"]
+collision_layer = 2

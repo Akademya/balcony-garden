@@ -3,7 +3,10 @@ extends Sprite
 func _ready() -> void:
 	pass
 
-# aici putem sa add un event
-# maybe un pop-up de genu: Sleep till next day si un cancel?
-func _on_Area2D_area_entered(area: Area2D) -> void:
-	pass
+
+func use():
+	print("zzZ")
+
+
+func _on_Interactable_body_entered(body: Node) -> void:
+	body.interactable = self
