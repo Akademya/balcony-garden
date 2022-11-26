@@ -265,6 +265,8 @@ z_index = 100
 texture = ExtResource( 15 )
 offset = Vector2( -10, -5 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [connection signal="mouse_entered" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_exited"]
 [connection signal="mouse_entered" from="Sprites/BArea2D" to="Sprites/BArea2D" method="_on_BArea2D_mouse_entered"]

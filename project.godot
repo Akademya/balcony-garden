@@ -12,6 +12,8 @@ config_version=4
 
 config/name="balcony_garden"
 run/main_scene="res://src/scene_manager.tscn"
+boot_splash/image="res://splash.png"
+boot_splash/bg_color=Color( 0.67451, 0.898039, 0.721569, 1 )
 config/icon="res://icon.png"
 
 [autoload]
