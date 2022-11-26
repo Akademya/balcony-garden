@@ -14,6 +14,5 @@ func get_input():
 	direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 
 func _physics_process(delta: float) -> void:
-	# very niceo, very clean code :)
 	get_input()
 	move_cam(delta)
