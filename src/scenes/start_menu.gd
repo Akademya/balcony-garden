@@ -1,10 +1,10 @@
 extends Control
 
 onready var btn_start = $CanvasLayer/VBoxContainer/HBoxContainerStart/ButtonStart
-onready var lbl_start = $CanvasLayer/VBoxContainer/HBoxContainerStart/Label
+onready var lbl_start = $CanvasLayer/VBoxContainer/HBoxContainerStart/Arrow
 onready var pad_start = $CanvasLayer/VBoxContainer/HBoxContainerStart/Padding
 onready var btn_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/ButtonExit
-onready var lbl_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/Label
+onready var lbl_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/Arrow
 onready var pad_exit = $CanvasLayer/VBoxContainer/HBoxContainerExit/Padding
 
 onready var SceneTree = get_tree()
