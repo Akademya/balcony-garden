@@ -18,3 +18,4 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="Interactable" to="." method="_on_Interactable_body_entered"]
+[connection signal="body_exited" from="Interactable" to="." method="_on_Interactable_body_exited"]
