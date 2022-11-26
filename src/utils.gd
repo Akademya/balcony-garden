@@ -2,6 +2,8 @@ extends Node
 
 const pd_shader = preload("res://assets/shaders/plant_done.tres")
 
+var dead_plant_texture = load("res://assets/loader/plants/dead.png")
+
 class Plant:
 	var texture
 	var water_level: int = 0
@@ -25,6 +27,11 @@ class Plant:
 		self.texture = AssetHandler.plants[type]["src"]
 		self.stages = AssetHandler.plants[type]["stages"]
 		self.gcs = AssetHandler.plants[type]["gcs"]
+
+#class DeadPlant:
+#	var texture = load("res://assets/loader/plants/dead.png")
+#	var type = "dead"
+#	var sprite: Sprite
 
 class ShopItem:
 	var texture

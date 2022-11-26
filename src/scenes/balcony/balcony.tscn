@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/balcony/watering_can.png" type="Texture" id=1]
 [ext_resource path="res://assets/balcony/composter.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://src/scenes/balcony/areas/wc_area_2D.gd" type="Script" id=11]
 [ext_resource path="res://src/scenes/balcony/balcony.gd" type="Script" id=12]
 [ext_resource path="res://assets/shaders/outline.tres" type="Shader" id=13]
+[ext_resource path="res://assets/balcony/bar.png" type="Texture" id=14]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -76,7 +77,33 @@ shader_param/is_on = false
 
 [sub_resource type="ShaderMaterial" id=16]
 
-[node name="Balcony" type="Node2D"]
+[sub_resource type="Shader" id=17]
+code = "shader_type canvas_item;
+
+uniform float perc = 0.0;
+
+bool approx_eq(vec4 c1, vec4 c2) { return all( lessThan( abs( c1 - c2 ), vec4( 0.005, 0.005, 0.005, 0.005) ) ); }
+
+void fragment()
+{
+	vec4 t = texture(TEXTURE, UV);
+	if ( approx_eq(t, (vec4(125, 255, 0, 255) / 255.0)) ) {
+		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+		if ( floor(UV.x * 50.0)/50.0 < 1.0 - (100.0 - perc + sin(UV.y * 10.0 + TIME * 2.0 ) * 2.0) / 100.0 ) {
+			COLOR = vec4(64, 147, 255, 255) / 255.0;
+		} else {
+			COLOR = vec4(219,252,255,130.0) / 255.0;
+		}
+	} else {
+		COLOR = t;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 17 )
+shader_param/perc = 0.0
+
+[node name="Balcony" type="Node2D" groups=["Balcony"]]
 script = ExtResource( 12 )
 
 [node name="Sprites" type="Node2D" parent="."]
@@ -175,6 +202,20 @@ position = Vector2( 136, 44 )
 
 [node name="Sprite" type="Sprite" parent="Sprites/PlantPos06"]
 material = SubResource( 16 )
+
+[node name="LocalHud" type="CanvasLayer" parent="."]
+
+[node name="WaterIndicator" type="TextureRect" parent="LocalHud"]
+material = SubResource( 18 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = -14.0
+margin_right = 62.0
+margin_bottom = -4.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 5
 
 [connection signal="mouse_entered" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_exited"]
