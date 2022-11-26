@@ -50,31 +50,30 @@ custom_constants/separation = 5
 alignment = 1
 
 [node name="HBoxContainerStart" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 25.0
+margin_top = 33.0
 margin_right = 116.0
 margin_bottom = 47.0
 custom_constants/separation = 0
 
 [node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
-margin_top = 4.0
 margin_right = 16.0
-margin_bottom = 18.0
+margin_bottom = 14.0
 text = "    "
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
 visible = false
 margin_left = 16.0
 margin_top = 3.0
-margin_right = 32.0
-margin_bottom = 19.0
+margin_right = 24.0
+margin_bottom = 11.0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = ">"
 
 [node name="ButtonStart" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
 margin_left = 16.0
-margin_right = 108.0
-margin_bottom = 22.0
+margin_right = 68.0
+margin_bottom = 14.0
 focus_mode = 0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )
@@ -88,29 +87,28 @@ flat = true
 [node name="HBoxContainerExit" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 margin_top = 52.0
 margin_right = 116.0
-margin_bottom = 74.0
+margin_bottom = 66.0
 custom_constants/separation = 0
 
 [node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
-margin_top = 4.0
 margin_right = 16.0
-margin_bottom = 18.0
+margin_bottom = 14.0
 text = "    "
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
 visible = false
 margin_left = 16.0
 margin_top = 3.0
-margin_right = 32.0
-margin_bottom = 19.0
+margin_right = 24.0
+margin_bottom = 11.0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = ">"
 
 [node name="ButtonExit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
 margin_left = 16.0
-margin_right = 92.0
-margin_bottom = 22.0
+margin_right = 60.0
+margin_bottom = 14.0
 focus_mode = 0
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )

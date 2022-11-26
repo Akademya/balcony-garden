@@ -45,13 +45,13 @@ func load_scene(scene_name: String):
 
 func _ready():
 	unload_all_children()
-	load_scene("start_menu_scene")
+#	load_scene("start_menu_scene")
 	
 	# TEST
-#	var b = balcony_scene.instance()
-#	b.number = 0
-#	scene_cont.add_child(b)
-#	in_game = true
+	var b = balcony_scene.instance()
+	b.number = 0
+	scene_cont.add_child(b)
+	in_game = true
 
 
 func _on_tick():
@@ -63,5 +63,8 @@ func _on_tick():
 				plant.counter += 1
 				plant.stage = plant.counter / plant.gcs
 				if (plant.stage > plant.stages - 1):
-					plant.stage = plant.stages
+					plant.stage = plant.stages - 1
+					plant.sprite.material.set_shader_param("is_on", true)
+				else:
+					plant.sprite.material.set_shader_param("is_on", false)
 				plant.sprite.frame = plant.stage

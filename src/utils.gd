@@ -1,5 +1,7 @@
 extends Node
 
+const pd_shader = preload("res://assets/shaders/plant_done.tres")
+
 class Plant:
 	var texture
 	var water_level: int = 0
@@ -24,7 +26,9 @@ class Plant:
 		self.stages = AssetHandler.plants[type]["stages"]
 		self.gcs = AssetHandler.plants[type]["gcs"]
 		self.sprite = Sprite.new()
-		sprite.centered = true
+		sprite.material = ShaderMaterial.new()
+		sprite.material.shader = pd_shader
+		
 		self.sprite.texture = texture
 		self.sprite.hframes = self.stages
 		self.sprite.frame = stage
