@@ -43,18 +43,18 @@ align = 1
 valign = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-margin_left = 111.0
+margin_left = 107.0
 margin_top = 45.0
-margin_right = 227.0
+margin_right = 247.0
 margin_bottom = 144.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_constants/separation = 5
 alignment = 1
 
 [node name="HBoxContainerStart" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 25.0
-margin_right = 116.0
-margin_bottom = 47.0
+margin_top = 11.0
+margin_right = 140.0
+margin_bottom = 33.0
 custom_constants/separation = 0
 
 [node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
@@ -84,9 +84,9 @@ text = "Start"
 flat = true
 
 [node name="HBoxContainerExit" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 52.0
-margin_right = 116.0
-margin_bottom = 74.0
+margin_top = 38.0
+margin_right = 140.0
+margin_bottom = 60.0
 custom_constants/separation = 0
 
 [node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
@@ -113,6 +113,38 @@ custom_fonts/font = ExtResource( 2 )
 custom_styles/focus = SubResource( 1 )
 enabled_focus_mode = 0
 text = "Exit"
+flat = true
+
+[node name="HBoxContainerOptions" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 65.0
+margin_right = 140.0
+margin_bottom = 87.0
+custom_constants/separation = 0
+
+[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerOptions"]
+margin_top = 4.0
+margin_right = 16.0
+margin_bottom = 18.0
+text = "    "
+
+[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerOptions"]
+visible = false
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = ">"
+
+[node name="ButtonOptions" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerOptions"]
+margin_left = 16.0
+margin_right = 140.0
+margin_bottom = 22.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = SubResource( 1 )
+enabled_focus_mode = 0
+text = "Options"
 flat = true
 
 [node name="AudioStreamPlayerSelect" type="AudioStreamPlayer" parent="."]

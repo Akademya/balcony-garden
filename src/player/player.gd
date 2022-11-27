@@ -25,6 +25,7 @@ func interact():
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
+		
 		find_path(get_viewport().get_mouse_position())
 	
 	if Input.is_action_just_pressed("ui_accept"):
