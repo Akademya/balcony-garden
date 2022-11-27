@@ -4,7 +4,6 @@ onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
 onready var seeds_container = $MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxContainer
 onready var drinks_container = $MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxContainer
 onready var shop_item_scene = preload("res://src/scenes/Shop/ShopHBox.tscn")
-onready var inventory_scene = get_node("res://src/scenes/Inventory/InvLayer.tscn")
 # onready var inv_itemcont = inventory_scene.get_child(7)
 
 
