@@ -69,21 +69,29 @@ func plant_bed_pressed():
 	else:
 		if (GameState.item_in_hand != null):
 			if (FLA.plantable.has(GameState.item_in_hand.id)):
-#				var item = GameState.item_in_hand
-#				if (item["quantity"] > 1):
-#					item["quantity"] -= 1
-#				else:
-#					GameState.remove_from_inv(item.id)
-#					GameState.remove_item_in_hand()
+				for i in range(0, plants.size()):
+					var plant = plants[i]
+					
+					if plant == null:
+						var item = GameState.item_in_hand
+						print(item)
+						
+						plants[i] = Utils.Plant.new(item["id"].replace("_seeds", ""), self["sp_" + String(i)])
+						
+						if (item["quantity"] > 1):
+							item["quantity"] -= 1
+						else:
+							GameState.remove_from_inv(item["id"])
+							GameState.remove_item_in_hand()
+						
+						var itm = Utils.Item.new(
+							GameState.items["paper_waste"].src,
+							"paper_waste",
+							"Paper Waste"
+						)
 #
-#				var itm = Utils.Item.new(
-#					GameState.items["compost"].src,
-#					"compost",
-#					"Compost"
-#				)
-#
-#				GameState.add_to_inv(itm)
-				pass
+						GameState.add_to_inv(itm)
+						return
 			else:
 				for i in range(0, plants.size()):
 					var plant = plants[i]
@@ -125,7 +133,6 @@ func plant_bed_pressed():
 					var plant = plants[i]
 					
 					if (plant != null):
-						print(plant.type, " ", plant.stage, " ", plant.stages)
 						if (plant.stage == plant.stages - 1 && plant.type != "dead"):
 							var itm = Utils.Item.new(
 								GameState.items[plant.type].src,

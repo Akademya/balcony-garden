@@ -20,10 +20,11 @@ class Plant:
 	func decrease_water_leve():
 		water_level -= 10
 	
-	func _init(type: String, stage: int = 0, water_level: int = 0):
+	func _init(type: String, sprite: Sprite = Sprite.new(), stage: int = 0, water_level: int = 0):
 		self.type = type
 		self.stage = stage
 		self.water_level = water_level
+		self.sprite = sprite
 		self.texture = AssetHandler.plants[type]["src"]
 		self.stages = AssetHandler.plants[type]["stages"]
 		self.gcs = AssetHandler.plants[type]["gcs"]

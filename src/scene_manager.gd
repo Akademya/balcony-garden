@@ -23,12 +23,8 @@ var water_rate = 90
 var water_counter = 0
 
 var plants = [
-	Utils.Plant.new("carrot"), 
-	Utils.Plant.new("onion"), 
-	Utils.Plant.new("pepper"), 
-	Utils.Plant.new("potato"), 
-	Utils.Plant.new("salad"), 
-	Utils.Plant.new("tomat"), 
+	null, null, null,
+	null, null, null
 ]
 
 #var unlocked_balconies = [
@@ -158,5 +154,5 @@ func _on_ENTER_pressed():
 		
 func open_inv():
 	if (focused_game == true):
-		focused_game = !focused_game
+		focused_game = false
 	load_scene("inv_scene")
