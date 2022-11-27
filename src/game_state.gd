@@ -78,3 +78,17 @@ func add_to_inv(item: Utils.Item):
 			i["quantity"] += item["quantity"]
 			return
 	inventory.append(item)
+
+func is_in_inv(id: String):
+	for i in inventory:
+		if (i["id"] == id):
+			return i
+	return null
+
+func remove_from_inv(id: String):
+	var i := 0
+	while i < inventory.size():
+		if (inventory[i]["id"] == id):
+			inventory.remove(i)
+			return
+		i += 1
