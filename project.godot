@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 AssetHandler="*res://src/asset_handler.gd"
 Utils="*res://src/utils.gd"
 GameState="*res://src/game_state.gd"
+FLA="*res://src/funny_little_arrays.gd"
 
 [display]
 

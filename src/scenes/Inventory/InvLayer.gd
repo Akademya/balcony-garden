@@ -18,10 +18,14 @@ func render():
 		btn.clip_text = true
 		btn.text = item["display_name"] + " | " + String(item["quantity"])
 		btn.icon = item["texture"]
+		btn.connect("pressed", self, "_inv_item_pressed", [item])
 		item_cont.add_child(btn)
 
-
-
 func _on_BackBTN_pressed():
+	if scene_manager.has_method("close_inv"):
+		scene_manager.close_inv()
+
+func _inv_item_pressed(item):
+	GameState.item_in_hand = item
 	if scene_manager.has_method("close_inv"):
 		scene_manager.close_inv()
