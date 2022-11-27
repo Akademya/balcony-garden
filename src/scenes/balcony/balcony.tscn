@@ -291,6 +291,8 @@ expand = true
 stretch_mode = 5
 flip_h = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="mouse_entered" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_exited"]
 [connection signal="mouse_entered" from="Sprites/BArea2D" to="Sprites/BArea2D" method="_on_BArea2D_mouse_entered"]

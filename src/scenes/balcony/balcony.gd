@@ -64,6 +64,13 @@ func plant_bed_pressed():
 		if (water_in_can > 0):
 			water_in_can -= 1
 			if scene_manager.has_method("increase_water_leve"):
+				
+				$Timer.connect("timeout", self, "_on_TimerWater_timeout" )
+				$Timer.wait_time = 1.20
+				$Timer.start()
+				scene_manager.get_node("AudioStreamPlayerWatering").seek(1.30)
+				scene_manager.get_node("AudioStreamPlayerWatering").play()
+				
 				scene_manager.increase_water_leve()
 		return
 	else:
@@ -177,6 +184,10 @@ func plant_bed_pressed():
 							)
 							
 							GameState.add_to_inv(itm)
+
+func _on_TimerWater_timeout():
+	print("done timer")
+	scene_manager.get_node("AudioStreamPlayerWatering").stop()
 
 func _process(delta):
 	redraw()
