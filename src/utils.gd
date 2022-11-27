@@ -57,4 +57,4 @@ class Item:
 		self.texture = texture
 		self.id = id
 		self.display_name = display_name
-		self.quantity = quantity	
+		self.quantity = quantity
