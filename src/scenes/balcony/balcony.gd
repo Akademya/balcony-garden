@@ -68,7 +68,21 @@ func plant_bed_pressed():
 		return
 	else:
 		if (GameState.item_in_hand != null):
-			if (FLA.plantable.has(GameState.item_in_hand.id)):
+			if (GameState.item_in_hand.id == "compost"):
+				var item = GameState.item_in_hand
+				if (item["quantity"] > 1):
+					item["quantity"] -= 1
+				else:
+					GameState.remove_from_inv(item.id)
+					GameState.remove_item_in_hand()
+					
+				for i in range(0, plants.size()):
+					var plant = plants[i]
+					
+					if plant != null:
+						plant.counter += plant.gcs
+				return
+			elif (FLA.plantable.has(GameState.item_in_hand.id)):
 				for i in range(0, plants.size()):
 					var plant = plants[i]
 					
