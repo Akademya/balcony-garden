@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/room/Room_Builder_free_16x16.png" type="Texture" id=1]
 [ext_resource path="res://src/player/player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://src/furniture/lamp.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/furniture/little_couch.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/furniture/small_plant.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/interactables/organic.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/interactables/paper.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/interactables/plastic.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 8 )
@@ -884,9 +887,6 @@ position = Vector2( -40, -52 )
 [node name="SmallPlant" parent="." instance=ExtResource( 14 )]
 position = Vector2( 84, -52 )
 
-[node name="Lamp2" parent="." instance=ExtResource( 12 )]
-position = Vector2( -4, -4 )
-
 [node name="Lamp" parent="." instance=ExtResource( 12 )]
 position = Vector2( -88, 36 )
 
@@ -905,6 +905,18 @@ position = Vector2( 34, -16 )
 [node name="BalconyDoor" parent="." instance=ExtResource( 4 )]
 material = SubResource( 3 )
 position = Vector2( 16, 30 )
+
+[node name="Organic" parent="." instance=ExtResource( 15 )]
+position = Vector2( 54, 86 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Plastic" parent="." instance=ExtResource( 17 )]
+position = Vector2( 70, 86 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Paper" parent="." instance=ExtResource( 16 )]
+position = Vector2( 86, 86 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Bed" parent="." instance=ExtResource( 5 )]
 material = SubResource( 4 )
@@ -996,6 +1008,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
+mouse_filter = 2
 
 [node name="AudioStreamPlayerWalk" type="AudioStreamPlayer" parent="."]
 

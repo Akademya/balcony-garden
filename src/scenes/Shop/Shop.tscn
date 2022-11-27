@@ -104,4 +104,6 @@ text = "0"
 align = 2
 script = ExtResource( 2 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_BackButton_pressed"]
