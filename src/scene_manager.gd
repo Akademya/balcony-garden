@@ -54,18 +54,18 @@ func load_balcony():
 	focused_game = true
 
 func _ready():
-	for i in GameState.items:
-		var iobj = GameState.items[i]
-		var itm = Utils.Item.new(
-			iobj["src"],
-			i,
-			i,
-			5
-		)
-		GameState.add_to_inv(itm)
-	load_scene("inv_layer")
+#	for i in GameState.items:
+#		var iobj = GameState.items[i]
+#		var itm = Utils.Item.new(
+#			iobj["src"],
+#			i,
+#			i,
+#			5
+#		)
+#		GameState.add_to_inv(itm)
+#	load_scene("inv_layer")
 	
-#	load_scene("start_menu_scene")
+	load_scene("start_menu_scene")
 	
 	# TEST
 #	unload_all_children()

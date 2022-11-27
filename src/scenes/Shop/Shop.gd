@@ -108,7 +108,7 @@ func _ready():
 		hboxcontainer.buy_price = i.buy_price
 		hboxcontainer.connect("ArbitraryButton_pressed", self, "_on_ArbitraryButton_pressed")
 
-func _process(delta):
+func check_buttons():
 	for i in seeds_container.get_children():
 		var button_sell = i.get_node("ButtonSell")
 		var button_buy = i.get_node("ButtonBuy")
@@ -122,9 +122,15 @@ func _process(delta):
 		var button_buy_price = i.buy_price
 		if button_buy_price > money:
 			button_buy.disabled = true
+	
 
-func _on_ArbitraryButton_pressed(item):
-	GameState.add_to_inv(Utils.Item.new(item.texture, item.id, item.text))
+func _process(delta):
+	check_buttons()
+
+func _on_ArbitraryButton_pressed(item, type):
+	if type == "buy" and GameState.global_money >= item.buy_price:
+		GameState.add_to_inv(Utils.Item.new(item.texture, item.id, item.text))
+		GameState.global_money -= item.buy_price
 
 func _on_BackButton_pressed() -> void:
 	if get_tree().get_nodes_in_group("SceneManager")[0].has_method("load_scene"):
