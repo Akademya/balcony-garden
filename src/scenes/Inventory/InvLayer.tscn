@@ -39,8 +39,9 @@ margin_right = 374.0
 margin_bottom = 206.0
 size_flags_vertical = 3
 
-[node name="ItemCont" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="ItemCont" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 374.0
 margin_bottom = 193.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+columns = 2

@@ -7,6 +7,9 @@ var room_scene = preload("res://src/scenes/room.tscn")
 var balcony_scene = preload("res://src/scenes/balcony/balcony.tscn")
 var shop_scene = preload("res://src/scenes/Shop/Shop.tscn")
 
+# TEST
+var inv_layer = preload("res://src/scenes/Inventory/InvLayer.tscn")
+
 
 # SHOULD HAVE USED A SINGLETON FOR ALL THIS :skull:
 
@@ -51,10 +54,21 @@ func load_balcony():
 	focused_game = true
 
 func _ready():
-	unload_all_children()
-	load_scene("start_menu_scene")
+	for i in GameState.items:
+		var iobj = GameState.items[i]
+		var itm = Utils.Item.new(
+			iobj["src"],
+			i,
+			i,
+			5
+		)
+		GameState.add_to_inv(itm)
+	load_scene("inv_layer")
+	
+#	load_scene("start_menu_scene")
 	
 	# TEST
+#	unload_all_children()
 #	var b = balcony_scene.instance()
 #	scene_cont.add_child(b)
 #	in_game = true

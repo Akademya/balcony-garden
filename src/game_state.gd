@@ -25,22 +25,48 @@ var items: Dictionary = {
 		"src": load("res://assets/items/salad_seeds.png")
 	},
 
-	"potato": {},
-	"carrot": {},
-	"onion": {},
-	"pepper": {},
-	"tomato": {},
-	"salad": {},
+	"potato": {
+		"src": load("res://assets/items/potato.png")
+	},
+	"carrot": {
+		"src": load("res://assets/items/carrot.png")
+	},
+	"onion": {
+		"src": load("res://assets/items/onion.png")
+	},
+	"pepper": {
+		"src": load("res://assets/items/pepper.png")
+	},
+	"tomato": {
+		"src": load("res://assets/items/tomato.png")
+	},
+	"salad": {
+		"src": load("res://assets/items/salad.png")
+	},
 
-	"water_bottle": {},
-	"milk_bottle": {},
-	"chocolate_milk": {},
+	"water_bottle": {
+		"src": load("res://assets/items/water_bottle.png")
+	},
+	"milk_bottle": {
+		"src": load("res://assets/items/milk_bottle.png")
+	},
+	"chocolate_milk": {
+		"src": load("res://assets/items/chocolate_milk.png")
+	},
 
-	"organic_waste": {},
-	"plastic_waste": {},
-	"paper_waste": {},
+	"organic_waste": {
+		"src": load("res://assets/items/organic_waste.png")
+	},
+	"plastic_waste": {
+		"src": load("res://assets/items/plastic_waste.png")
+	},
+	"paper_waste": {
+		"src": load("res://assets/items/paper_waste.png")
+	},
 
-	"compost": {}
+	"compost": {
+		"src": load("res://assets/items/compost.png")
+	}
 }
 
 func add_to_inv(item: Utils.Item):

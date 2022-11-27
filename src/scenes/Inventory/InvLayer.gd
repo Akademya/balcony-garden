@@ -1,10 +1,20 @@
 extends CanvasLayer
 
 onready var item_cont = $Panel/MarginContainer/VBoxContainer/ScrollContainer/ItemCont
+#onready var font = load("res://assets/font/monocraft.tres")
 
 func _ready():
+	render()
+	pass
+
+func render():
+	for child in item_cont.get_children():
+		child.queue_free()
 	for item in GameState.inventory:
 		var btn = Button.new()
-		btn.text = item["display_name"] + " - " + String(item["quantity"]).pad_zeros(2)
+		btn.size_flags_horizontal = 3
+		
+		btn.clip_text = true
+		btn.text = item["display_name"] + " | " + String(item["quantity"])
 		btn.icon = item["texture"]
-	pass
+		item_cont.add_child(btn)
