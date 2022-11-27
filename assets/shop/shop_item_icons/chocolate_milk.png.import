@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chocolate_milk.png-4629cfdec68e30166692583d207a1b59.stex"
+path="res://.import/chocolate_milk.png-36bfa9ece19b97e1e79cd1a829bdc2bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/chocolate_milk.png"
-dest_files=[ "res://.import/chocolate_milk.png-4629cfdec68e30166692583d207a1b59.stex" ]
+source_file="res://assets/shop/shop_item_icons/chocolate_milk.png"
+dest_files=[ "res://.import/chocolate_milk.png-36bfa9ece19b97e1e79cd1a829bdc2bb.stex" ]
 
 [params]
 

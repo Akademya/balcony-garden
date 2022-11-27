@@ -64,6 +64,20 @@ var shop_items: Dictionary = {
 			0,
 			10,
 			"water_bottle"
+		),
+		Utils.ShopItem.new(
+			load("res://assets/shop/shop_item_icons/chocolate_milk.png"),
+			"Chocolate Milk",
+			0,
+			10,
+			"chocolate_milk"
+		),
+		Utils.ShopItem.new(
+			load("res://assets/shop/shop_item_icons/milk_bottle.png"),
+			"Milk Bottle",
+			0,
+			10,
+			"milk_bottle"
 		)
 	]
 }
@@ -77,7 +91,7 @@ func _ready():
 		hboxcontainer.get_node("ItemName").text = i.text
 		hboxcontainer.get_node("ButtonSell").text = "Sell $" + String(i.sell_price) 
 		hboxcontainer.get_node("ButtonBuy").text = "Buy $" + String(i.buy_price)
-		hboxcontainer.id = i.id
+		hboxcontainer.item = i
 		hboxcontainer.sell_price = i.sell_price
 		hboxcontainer.buy_price = i.buy_price
 		hboxcontainer.connect("ArbitraryButton_pressed", self, "_on_ArbitraryButton_pressed")
@@ -90,7 +104,7 @@ func _ready():
 		hboxcontainer.get_node("ButtonSell").text = "Sell $" + String(i.sell_price) 
 		hboxcontainer.get_node("ButtonBuy").text = "Buy $" + String(i.buy_price)
 		hboxcontainer.get_node("ButtonSell").visible = false
-		hboxcontainer.id = i.id
+		hboxcontainer.item = i
 		hboxcontainer.buy_price = i.buy_price
 		hboxcontainer.connect("ArbitraryButton_pressed", self, "_on_ArbitraryButton_pressed")
 
@@ -109,8 +123,8 @@ func _process(delta):
 		if button_buy_price > money:
 			button_buy.disabled = true
 
-func _on_ArbitraryButton_pressed(id, type):
-	print(id, " ", type)
+func _on_ArbitraryButton_pressed(item):
+	GameState.add_to_inv(Utils.Item.new(item.texture, item.id, item.text))
 
 func _on_BackButton_pressed() -> void:
 	if get_tree().get_nodes_in_group("SceneManager")[0].has_method("load_scene"):
