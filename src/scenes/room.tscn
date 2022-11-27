@@ -928,11 +928,6 @@ collision_mask = 7
 [node name="Boundary" type="StaticBody2D" parent="."]
 collision_layer = 4
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
-visible = false
-polygon = PoolVector2Array( 96, -64, 96, -96, -116, -96, -116, 94, 150, 94, 150, -98, 96, -98, 96, 30, -10, 30, -10, 82, -96, 82, -96, -64 )
-disabled = true
-
 [node name="CS2D01" type="CollisionShape2D" parent="Boundary"]
 position = Vector2( -104, -5 )
 shape = SubResource( 6 )
@@ -977,11 +972,11 @@ shape = SubResource( 15 )
 position = Vector2( 80, -15 )
 shape = SubResource( 16 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+[node name="CS2D12" type="CollisionShape2D" parent="Boundary"]
 position = Vector2( 72, -41 )
 shape = SubResource( 17 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary"]
+[node name="CS2D13" type="CollisionShape2D" parent="Boundary"]
 position = Vector2( 40, 60 )
 shape = SubResource( 18 )
 
