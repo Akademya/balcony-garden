@@ -18,6 +18,7 @@ var is_wc_in_hand := false
 var water_in_can := 0
 
 func _ready():
+	$Timer.connect("timeout", self, "_on_TimerWater_timeout" )
 	plants = scene_manager.plants
 	for i in range(0, plants.size()):
 		var plant = plants[i]
@@ -64,8 +65,6 @@ func plant_bed_pressed():
 		if (water_in_can > 0):
 			water_in_can -= 1
 			if scene_manager.has_method("increase_water_leve"):
-				
-				$Timer.connect("timeout", self, "_on_TimerWater_timeout" )
 				$Timer.wait_time = 1.20
 				$Timer.start()
 				scene_manager.get_node("AudioStreamPlayerWatering").seek(1.30)
