@@ -49,11 +49,14 @@ class ShopItem:
 
 class Item:
 	var texture
-	var id
-	var quatity
-	var name
+	var id: String
+	var quantity: int
+	var display_name: String
 	
-	func _init(texture, id: String, quantity: int, name: String):
+	func _init(texture, id: String, display_name: String, quantity: int = 1):
 		self.texture = texture
+		self.id = id
+		self.display_name = display_name
+		self.quantity = quantity
 		
 	

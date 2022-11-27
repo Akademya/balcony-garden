@@ -251,8 +251,6 @@ z_index = 100
 texture = ExtResource( 15 )
 offset = Vector2( -10, -5 )
 
-[node name="PBHCanvasLayer" type="CanvasLayer" parent="."]
-
 [node name="LocalHud" type="CanvasLayer" parent="."]
 
 [node name="back_btn" type="TextureButton" parent="LocalHud"]

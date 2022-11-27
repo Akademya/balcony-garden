@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/font/press_start_2P_shop.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/scenes/Inventory/InvLayer.gd" type="Script" id=2]
+
+[node name="InvLayer" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 192.0
+margin_bottom = 108.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 379.0
+margin_bottom = 211.0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 374.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 1 )
+text = "Inventory"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 13.0
+margin_right = 374.0
+margin_bottom = 206.0
+size_flags_vertical = 3
+
+[node name="ItemCont" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 374.0
+margin_bottom = 193.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
