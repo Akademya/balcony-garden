@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/room/bed.png" type="Texture" id=1]
 [ext_resource path="res://src/interactables/bed.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 37, 22 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21, 6.5 )
 
 [node name="Bed" type="Sprite"]
 texture = ExtResource( 1 )
@@ -16,6 +19,13 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
 position = Vector2( 16, -10 )
 shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 3.5 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="Interactable" to="." method="_on_Interactable_body_entered"]
 [connection signal="body_exited" from="Interactable" to="." method="_on_Interactable_body_exited"]
