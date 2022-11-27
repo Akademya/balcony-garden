@@ -5,6 +5,8 @@ onready var scene_cont = $SceneCont
 var start_menu_scene = preload("res://src/scenes/start_menu.tscn")
 var room_scene = preload("res://src/scenes/room.tscn")
 var balcony_scene = preload("res://src/scenes/balcony/balcony.tscn")
+var shop_scene = preload("res://src/scenes/Shop/Shop.tscn")
+
 
 # SHOULD HAVE USED A SINGLETON FOR ALL THIS :skull:
 
