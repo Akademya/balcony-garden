@@ -81,13 +81,9 @@ var shop_items: Dictionary = {
 	]
 }
 
-#func find_inv_item(find_item):
-#	for inv_item in GameState.inventory:
-#		if inv_item.id == find_item.id:
-#			return true
-#	return false
 
 func _ready():
+	$Control/MarginContainer/TabContainer.connect("tab_changed", self, "_on_TabContainer_tab_changed")
 	# instance shop item scenes in the shop ui for every item in shop_items
 	for i in shop_items.seeds:
 		var hboxcontainer: Node = shop_item_scene.instance();
@@ -114,34 +110,6 @@ func _ready():
 		hboxcontainer.buy_price = i.buy_price
 		hboxcontainer.connect("ArbitraryButton_pressed", self, "_on_ArbitraryButton_pressed")
 
-#func check_buttons():
-#	print(GameState.global_money)
-#	for i in seeds_container.get_children():
-#		var is_sell_pos: bool = false
-#		var button_sell = i.get_node("ButtonSell")
-#		var button_buy = i.get_node("ButtonBuy")
-#		var button_sell_price = i.sell_price
-#		var button_buy_price = i.buy_price
-#
-#		# check buy buttons <EASY AS HELL>
-#		if button_buy_price > GameState.global_money:
-#			button_buy.disabled = true
-#
-#		# check sell buttons <HARD AS HELL>
-#		for j in GameState.inventory:
-#			if j.id == i.item.id:
-#				is_sell_pos = true
-#		if is_sell_pos == true:
-#			button_sell.disabled = false
-#		else:
-#			button_sell.disabled = true
-#
-#	for i in drinks_container.get_children():
-#		var button_buy = i.get_node("ButtonBuy")
-#		var button_buy_price = i.buy_price
-#		if button_buy_price > GameState.global_money:
-#			button_buy.disabled = true
-#
 func _on_ArbitraryButton_pressed(item, type):
 	if (type == "buy"):
 		if (GameState.global_money >= item.buy_price):
@@ -160,6 +128,16 @@ func _on_ArbitraryButton_pressed(item, type):
 func _process(delta):
 	pass
 
+func _on_TabContainer_tab_changed(tab):
+	scene_manager.get_node("AudioStreamPlayerConfirm").play()
+
 func _on_BackButton_pressed() -> void:
+	if GameState.toggle_SFX:
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
+	$Timer.wait_time = scene_manager.get_node("AudioStreamPlayerConfirm").stream.get_length() - 0.3
+	$Timer.connect("timeout", self, "_on_TimerBack_timeout")
+	$Timer.start()
+
+func _on_TimerBack_timeout():
 	if get_tree().get_nodes_in_group("SceneManager")[0].has_method("load_scene"):
 		get_tree().get_nodes_in_group("SceneManager")[0].load_scene("room_scene")

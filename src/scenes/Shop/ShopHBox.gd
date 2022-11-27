@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
+
 var item
 var sell_price
 var buy_price
@@ -7,34 +9,11 @@ var buy_price
 signal ArbitraryButton_pressed(item, type)
 
 func _ready():
-	pass
+	get_node("ButtonSell").connect("mouse_entered", self, "_on_ButtonSell_mouse_entered")
+	get_node("ButtonBuy").connect("mouse_entered", self, "_on_ButtonBuy_mouse_entered")
+	get_node("ButtonSell").connect("pressed", self, "_on_ButtonSell_press")
+	get_node("ButtonBuy").connect("pressed", self, "_on_ButtonBuy_press")
 
-#	print(GameState.global_money)
-#	for i in seeds_container.get_children():
-#		var is_sell_pos: bool = false
-#		var button_sell = i.get_node("ButtonSell")
-#		var button_buy = i.get_node("ButtonBuy")
-#		var button_sell_price = i.sell_price
-#		var button_buy_price = i.buy_price
-#
-#		# check buy buttons <EASY AS HELL>
-#		if button_buy_price > GameState.global_money:
-#			button_buy.disabled = true
-#
-#		# check sell buttons <HARD AS HELL>
-#		for j in GameState.inventory:
-#			if j.id == i.item.id:
-#				is_sell_pos = true
-#		if is_sell_pos == true:
-#			button_sell.disabled = false
-#		else:
-#			button_sell.disabled = true
-#
-#	for i in drinks_container.get_children():
-#		var button_buy = i.get_node("ButtonBuy")
-#		var button_buy_price = i.buy_price
-#		if button_buy_price > GameState.global_money:
-#			button_buy.disabled = true
 func _process(delta):
 	if buy_price > GameState.global_money:
 		$ButtonBuy.disabled = true
@@ -49,16 +28,24 @@ func _process(delta):
 		$ButtonSell.disabled = false
 	else:
 		$ButtonSell.disabled = true
-	
+
+func _on_ButtonSell_mouse_entered():
+	if GameState.toggle_SFX && $ButtonSell.disabled == false:
+		scene_manager.get_node("AudioStreamPlayerSelect").play()
+
+func _on_ButtonBuy_mouse_entered():
+	if GameState.toggle_SFX && $ButtonBuy.disabled == false:
+		scene_manager.get_node("AudioStreamPlayerSelect").play()
 
 func _on_ButtonSell_pressed():
+	if GameState.toggle_SFX && $ButtonSell.disabled == false:
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
 	print(GameState.global_money)
 	emit_signal("ArbitraryButton_pressed", item, "sell")
-	
-	# print("emitted sell")
-
 
 func _on_ButtonBuy_pressed():
+	if GameState.toggle_SFX && $ButtonBuy.disabled == false:
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
 	print(GameState.global_money)
 	emit_signal("ArbitraryButton_pressed", item, "buy")
 	# print("emitted buy")
