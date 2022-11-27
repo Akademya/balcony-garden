@@ -258,14 +258,14 @@ expand = true
 stretch_mode = 5
 flip_h = true
 
+[node name="PBHCanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="CursorFollower" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 0.3, 0.3 )
 z_index = 100
 texture = ExtResource( 15 )
 offset = Vector2( -10, -5 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="mouse_entered" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_exited"]
