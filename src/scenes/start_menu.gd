@@ -1,5 +1,7 @@
 extends Control
 
+onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
+
 onready var btn_start = $CanvasLayer/VBoxContainerMainMenu/HBoxContainerStart/ButtonStart
 onready var lbl_start = $CanvasLayer/VBoxContainerMainMenu/HBoxContainerStart/Arrow
 onready var pad_start = $CanvasLayer/VBoxContainerMainMenu/HBoxContainerStart/Padding
@@ -17,8 +19,8 @@ onready var btn_back = $CanvasLayer/ButtonBack
 onready var btn_toggle_music = $CanvasLayer/VBoxContainerOptionsMenu/HBoxContainerToggleMusic/CheckBoxMusic
 onready var btn_toggle_SFX = $CanvasLayer/VBoxContainerOptionsMenu/HBoxContainerToggleSFX/CheckBoxSFX
 
-onready var select_l = $AudioStreamPlayerSelect.stream.get_length()
-onready var confirm_l = $AudioStreamPlayerConfirm.stream.get_length()
+onready var select_l = scene_manager.get_node("AudioStreamPlayerSelect").stream.get_length()
+onready var confirm_l = scene_manager.get_node("AudioStreamPlayerConfirm").stream.get_length()
 
 onready var SceneTree = get_tree()
 
@@ -42,28 +44,28 @@ func _ready():
 
 func _on_ButtonStart_pressed():
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerConfirm.play()
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
 	$Timer.wait_time = confirm_l - 0.3
 	$Timer.connect("timeout", self, "_on_Timer_timeoutStart")
 	$Timer.start()
 
 func _on_ButtonExit_pressed():
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerConfirm.play()
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
 	$Timer.wait_time = confirm_l - 0.3
 	$Timer.connect("timeout", self, "_on_Timer_timeoutExit")
 	$Timer.start()
 
 func _on_ButtonOptions_pressed():
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerConfirm.play()
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
 	$Timer.wait_time = confirm_l - 0.3
 	$Timer.connect("timeout", self, "_on_Timer_timeoutOptions")
 	$Timer.start()
 
 func _on_ButtonBack_pressed():
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerConfirm.play()
+		scene_manager.get_node("AudioStreamPlayerConfirm").play()
 	$Timer.wait_time = confirm_l - 0.3
 	$Timer.connect("timeout", self, "_on_Timer_timeoutBack")
 	$Timer.start()
@@ -104,23 +106,23 @@ func _on_ButtonStart_mouse_entered():
 	lbl_start.visible = true
 	pad_start.visible = false
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerSelect.play()
+		scene_manager.get_node("AudioStreamPlayerSelect").play()
 
 func _on_ButtonExit_mouse_entered():
 	lbl_exit.visible = true
 	pad_exit.visible = false
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerSelect.play()
+		scene_manager.get_node("AudioStreamPlayerSelect").play()
 
 func _on_ButtonOptions_mouse_entered():
 	lbl_options.visible = true
 	pad_options.visible = false
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerSelect.play()
+		scene_manager.get_node("AudioStreamPlayerSelect").play()
 
 func _on_ButtonBack_mouse_entered():
 	if GameState.toggle_SFX:
-		$AudioStreamPlayerSelect.play()
+		scene_manager.get_node("AudioStreamPlayerSelect").play()
 
 func _on_ButtonStart_mouse_exited():
 	lbl_start.visible = false
