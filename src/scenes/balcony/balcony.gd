@@ -35,6 +35,7 @@ func redraw():
 	for i in range(0, plants.size()):
 		var plant = plants[i]
 		if plant == null:
+			self["sp_" + String(i)].texture = null
 			continue
 		var sprite = self["sp_" + String(i)]
 		sprite.material.shader = Utils.pd_shader
@@ -65,8 +66,99 @@ func plant_bed_pressed():
 			if scene_manager.has_method("increase_water_leve"):
 				scene_manager.increase_water_leve()
 		return
+	else:
+		if (GameState.item_in_hand != null):
+			if (FLA.plantable.has(GameState.item_in_hand.id)):
+#				var item = GameState.item_in_hand
+#				if (item["quantity"] > 1):
+#					item["quantity"] -= 1
+#				else:
+#					GameState.remove_from_inv(item.id)
+#					GameState.remove_item_in_hand()
+#
+#				var itm = Utils.Item.new(
+#					GameState.items["compost"].src,
+#					"compost",
+#					"Compost"
+#				)
+#
+#				GameState.add_to_inv(itm)
+				pass
+			else:
+				for i in range(0, plants.size()):
+					var plant = plants[i]
+					
+					if (plant != null):
+						print(plant.type, " ", plant.stage, " ", plant.stages)
+						if (plant.stage == plant.stages - 1 && plant.type != "dead"):
+							var itm = Utils.Item.new(
+								GameState.items[plant.type].src,
+								plant.type,
+								plant.type.to_upper()
+							)
+							
+							var rnd = randi() % 2 + 1
+							
+							var sitm = Utils.Item.new(
+								GameState.items[plant.type + "_seeds"].src,
+								plant.type + "_seeds",
+								plant.type.to_upper() + " Seeds",
+								rnd
+							)
+							
+							GameState.add_to_inv(itm)
+							GameState.add_to_inv(sitm)
+							plants[i] = null
+							pass
+						elif (plant.type == "dead"):
+							plants[i] = null
+							
+							var itm = Utils.Item.new(
+								GameState.items["organic_waste"].src,
+								"organic_waste",
+								"Organic Waste"
+							)
+							
+							GameState.add_to_inv(itm)
+		else:
+			for i in range(0, plants.size()):
+					var plant = plants[i]
+					
+					if (plant != null):
+						print(plant.type, " ", plant.stage, " ", plant.stages)
+						if (plant.stage == plant.stages - 1 && plant.type != "dead"):
+							var itm = Utils.Item.new(
+								GameState.items[plant.type].src,
+								plant.type,
+								plant.type.to_upper()
+							)
+							
+							var rnd = randi() % 2 + 1
+							
+							var sitm = Utils.Item.new(
+								GameState.items[plant.type + "_seeds"].src,
+								plant.type + "_seeds",
+								plant.type.to_upper() + " Seeds",
+								rnd
+							)
+							
+							GameState.add_to_inv(itm)
+							GameState.add_to_inv(sitm)
+							plants[i] = null
+							pass
+						elif (plant.type == "dead"):
+							plants[i] = null
+							
+							var itm = Utils.Item.new(
+								GameState.items["organic_waste"].src,
+								"organic_waste",
+								"Organic Waste"
+							)
+							
+							GameState.add_to_inv(itm)
 
 func _process(delta):
+	redraw()
 	cursor_follower.position = get_viewport().get_mouse_position()
 	wc_indicator.material.set_shader_param(
 			"perc", 

@@ -58,6 +58,7 @@ func load_balcony():
 	current_scene = "balcony_scene"
 
 func _ready():
+	randomize()
 #	for i in GameState.items:
 #		var iobj = GameState.items[i]
 #		var itm = Utils.Item.new(
@@ -129,9 +130,7 @@ func _process(delta):
 			)
 		)
 	if (Input.is_action_just_pressed("inv")):
-		if (focused_game == true):
-			focused_game = !focused_game
-		load_scene("inv_scene")
+		open_inv()
 	
 	if (Input.is_action_just_pressed("DEBUG")):
 		dbg.visible = !dbg.visible
@@ -157,3 +156,7 @@ func _on_ENTER_pressed():
 			
 		GameState.add_to_inv(itm)
 		
+func open_inv():
+	if (focused_game == true):
+		focused_game = !focused_game
+	load_scene("inv_scene")

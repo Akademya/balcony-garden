@@ -23,7 +23,7 @@ var items: Dictionary = {
 	"pepper_seeds": {
 		"src": load("res://assets/items/pepper_seeds.png")
 	},
-	"tomato_seeds": {
+	"tomat_seeds": {
 		"src": load("res://assets/items/tomat_seeds.png")
 	},
 	"salad_seeds": {
@@ -42,7 +42,7 @@ var items: Dictionary = {
 	"pepper": {
 		"src": load("res://assets/items/pepper.png")
 	},
-	"tomato": {
+	"tomat": {
 		"src": load("res://assets/items/tomato.png")
 	},
 	"salad": {

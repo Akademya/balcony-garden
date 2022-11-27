@@ -30,7 +30,7 @@ func interact():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		if event.position.distance_to(self.global_position) < 10: 
-			print("UgaBuga")
+			try_eat()
 		else:
 			find_path(get_viewport().get_mouse_position())
 	
@@ -56,3 +56,29 @@ func _physics_process(_delta: float) -> void:
 		velocity = move_and_slide(velocity)
 	else:
 		velocity = Vector2.ZERO
+
+func try_eat():
+	if (GameState.item_in_hand != null && FLA.comestible.has(GameState.item_in_hand.id)):
+		var item = GameState.item_in_hand
+		if (item["quantity"] > 1):
+			item["quantity"] -= 1
+		else:
+			GameState.remove_from_inv(item["id"])
+			GameState.remove_item_in_hand()
+		
+		var res
+		var nm
+		if (FLA.res_organic.has(item["id"])):
+			res = "organic_waste"
+			nm = "Organic Waste"
+		if (FLA.res_plastic.has(item["id"])):
+			res = "plastic_waste"
+			nm = "Plastic Waste"
+		
+		var itm = Utils.Item.new(
+			GameState.items[res].src,
+			res,
+			nm
+		)
+			
+		GameState.add_to_inv(itm)
