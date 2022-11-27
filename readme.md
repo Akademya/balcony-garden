@@ -9,13 +9,14 @@ A simple game made for unihack eu (Timisoara)
 ### TODO
 - [X] Scene Manager ! - All (Mainly Osaki)
 - - [ ] Polish
-- - [ ] Music !/?
+- - [X] Music !/?
 - [X] Main Menu ! - Serbi
-- - [ ] Music Options !/? - ???
+- - [X] Music Options !/? - ???
 - [X] Room Scene ! - Thomas
 - - [ ] Fix Collisions !
 - - [ ] UI
-- - [ ] Interactions
+- - [X] Interactions
+- - [ ] Z Index
 - [ ] Balcony Room ! - Osaki
 - - [ ] UI
 - - - [X] Water Level
@@ -29,8 +30,8 @@ A simple game made for unihack eu (Timisoara)
 - - [ ] Composter
 - - [ ] Chest
 - [ ] Shop ! - Serbi
-- - [ ] Buy
+- - [X] Buy
 - - [ ] Sell
 - - [X] List
 - - - [X] UI
-- [ ] Item System ! - All
+- [X] Item System ! - All
