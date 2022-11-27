@@ -1,9 +1,9 @@
 extends Node
 
 var global_money = 10
-<<<<<<< HEAD
+
 var player_position : Vector2 = Vector2(69, 69)
-=======
+
 var item_types: Dictionary = {
 	"potato_seeds" : "potato_seeds",
 	"carrot_seeds" : "carrot_seeds",
@@ -29,4 +29,3 @@ var item_types: Dictionary = {
 	
 	"compost" : "compost"
 }
->>>>>>> 73e011ee195a08935de9e8225e9881c22f76f075
