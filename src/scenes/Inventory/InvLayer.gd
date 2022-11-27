@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
 onready var item_cont = $Panel/MarginContainer/VBoxContainer/ScrollContainer/ItemCont
 #onready var font = load("res://assets/font/monocraft.tres")
 
@@ -18,3 +19,9 @@ func render():
 		btn.text = item["display_name"] + " | " + String(item["quantity"])
 		btn.icon = item["texture"]
 		item_cont.add_child(btn)
+
+
+
+func _on_BackBTN_pressed():
+	if scene_manager.has_method("close_inv"):
+		scene_manager.close_inv()

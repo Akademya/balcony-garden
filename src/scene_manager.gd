@@ -2,14 +2,13 @@ extends Node
 
 onready var scene_cont = $SceneCont
 
-var start_menu_scene = preload("res://src/scenes/start_menu.tscn")
-var room_scene = preload("res://src/scenes/room.tscn")
-var balcony_scene = preload("res://src/scenes/balcony/balcony.tscn")
-var shop_scene = preload("res://src/scenes/Shop/Shop.tscn")
+const start_menu_scene = preload("res://src/scenes/start_menu.tscn")
+const room_scene = preload("res://src/scenes/room.tscn")
+const balcony_scene = preload("res://src/scenes/balcony/balcony.tscn")
+const shop_scene = preload("res://src/scenes/Shop/Shop.tscn")
+const inv_scene = preload("res://src/scenes/Inventory/InvLayer.tscn")
 
-# TEST
-var inv_layer = preload("res://src/scenes/Inventory/InvLayer.tscn")
-
+var current_scene = ""
 
 # SHOULD HAVE USED A SINGLETON FOR ALL THIS :skull:
 
@@ -45,6 +44,8 @@ func load_scene(scene_name: String):
 	unload_all_children()
 	var scene_instance = self[scene_name].instance()
 	scene_cont.add_child(scene_instance)
+	if (scene_name != "inv_scene"):
+		current_scene = scene_name
 
 func load_balcony():
 	unload_all_children()
@@ -52,20 +53,21 @@ func load_balcony():
 	scene_cont.add_child(b)
 	in_game = true
 	focused_game = true
+	current_scene = "balcony_scene"
 
 func _ready():
-	for i in GameState.items:
-		var iobj = GameState.items[i]
-		var itm = Utils.Item.new(
-			iobj["src"],
-			i,
-			i,
-			5
-		)
-		GameState.add_to_inv(itm)
-	load_scene("inv_layer")
+#	for i in GameState.items:
+#		var iobj = GameState.items[i]
+#		var itm = Utils.Item.new(
+#			iobj["src"],
+#			i,
+#			i,
+#			5
+#		)
+#		GameState.add_to_inv(itm)
+#	load_scene("inv_layer")
 	
-#	load_scene("start_menu_scene")
+	load_scene("start_menu_scene")
 	
 	# TEST
 #	unload_all_children()
@@ -124,3 +126,13 @@ func _process(delta):
 				water_level, 1 * delta
 			)
 		)
+	if (Input.is_action_just_pressed("inv")):
+		if (focused_game == true):
+			focused_game = !focused_game
+		load_scene("inv_scene")
+
+func close_inv():
+	if (current_scene == "balcony_scene"):
+		load_balcony()
+	else:
+		load_scene(current_scene)

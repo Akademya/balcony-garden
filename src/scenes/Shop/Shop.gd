@@ -123,8 +123,14 @@ func _process(delta):
 		if button_buy_price > money:
 			button_buy.disabled = true
 
-func _on_ArbitraryButton_pressed(item):
-	GameState.add_to_inv(Utils.Item.new(item.texture, item.id, item.text))
+func _on_ArbitraryButton_pressed(item, type):
+	if (type == "buy"):
+		if (GameState.global_money >= item.buy_price):
+			GameState.global_money -= 10
+			GameState.add_to_inv(Utils.Item.new(item.texture, item.id, item.text))
+		return
+	if (type == "sell"):
+		return
 
 func _on_BackButton_pressed() -> void:
 	if get_tree().get_nodes_in_group("SceneManager")[0].has_method("load_scene"):

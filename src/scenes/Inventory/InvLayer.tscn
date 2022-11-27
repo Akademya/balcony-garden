@@ -27,21 +27,35 @@ margin_top = 5.0
 margin_right = 379.0
 margin_bottom = 211.0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
 margin_right = 374.0
-margin_bottom = 9.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 328.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 1 )
 text = "Inventory"
 
+[node name="BackBTN" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 332.0
+margin_right = 374.0
+margin_bottom = 20.0
+text = "Back"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
-margin_top = 13.0
+margin_top = 24.0
 margin_right = 374.0
 margin_bottom = 206.0
 size_flags_vertical = 3
 
 [node name="ItemCont" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 374.0
-margin_bottom = 193.0
+margin_bottom = 182.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 2
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/BackBTN" to="." method="_on_BackBTN_pressed"]
