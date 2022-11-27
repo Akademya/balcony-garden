@@ -8,6 +8,8 @@ var toggle_SFX: bool = true
 
 var inventory: Array = []
 
+var item_in_hand = null
+
 var items: Dictionary = {
 	"potato_seeds": {
 		"src": load("res://assets/items/potato_seeds.png")	

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/scene_manager.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/grasslands.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/sounds/confirm.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/sounds/select.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sounds/text.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/font/press_start_2P_shop.tres" type="DynamicFont" id=6]
+[ext_resource path="res://src/HUD/CoinsLabel.gd" type="Script" id=7]
+[ext_resource path="res://assets/coin.png" type="Texture" id=8]
 
 [node name="SceneManager" type="Node" groups=["SceneManager"]]
 script = ExtResource( 1 )
@@ -12,6 +15,29 @@ script = ExtResource( 1 )
 [node name="SceneCont" type="Node" parent="."]
 
 [node name="HUD" type="Node" parent="."]
+
+[node name="GlobalHUD" type="CanvasLayer" parent="HUD"]
+layer = -1
+
+[node name="CoinsTexture" type="TextureRect" parent="HUD/GlobalHUD"]
+margin_left = 181.0
+margin_top = 94.0
+margin_right = 188.0
+margin_bottom = 103.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="CoinsLabel" type="Label" parent="HUD/GlobalHUD"]
+margin_left = 135.0
+margin_top = 94.0
+margin_right = 180.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 6 )
+text = "0000"
+align = 2
+valign = 1
+script = ExtResource( 7 )
 
 [node name="tick" type="Timer" parent="."]
 wait_time = 0.05
