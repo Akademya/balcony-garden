@@ -1,3 +1,11 @@
+#############################
+#							#
+#			Osaki			#
+#			Serb			#
+#			Thomas			#
+#							#
+#############################
+
 extends Node
 
 onready var scene_cont = $SceneCont
