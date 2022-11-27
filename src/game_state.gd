@@ -94,3 +94,6 @@ func remove_from_inv(id: String):
 			inventory.remove(i)
 			return
 		i += 1
+
+func remove_item_in_hand():
+	item_in_hand = null

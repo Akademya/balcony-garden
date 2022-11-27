@@ -1,6 +1,8 @@
 extends Node
 
 onready var scene_cont = $SceneCont
+onready var dbg = $DEBUG
+onready var cmd = $DEBUG/CMD
 
 const start_menu_scene = preload("res://src/scenes/start_menu.tscn")
 const room_scene = preload("res://src/scenes/room.tscn")
@@ -130,9 +132,28 @@ func _process(delta):
 		if (focused_game == true):
 			focused_game = !focused_game
 		load_scene("inv_scene")
+	
+	if (Input.is_action_just_pressed("DEBUG")):
+		dbg.visible = !dbg.visible
 
 func close_inv():
 	if (current_scene == "balcony_scene"):
 		load_balcony()
 	else:
 		load_scene(current_scene)
+
+
+func _on_ENTER_pressed():
+	var command: String = cmd.text
+	cmd.text = ""
+	command = command.to_lower()
+	var args = command.split(" ")
+	if (command.begins_with("give")):
+		var itm = Utils.Item.new(
+				GameState.items[args[1]].src,
+				args[1],
+				args[1]
+		)
+			
+		GameState.add_to_inv(itm)
+		

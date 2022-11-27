@@ -81,4 +81,23 @@ stream = ExtResource( 5 )
 volume_db = -6.282
 pitch_scale = 0.2
 
+[node name="DEBUG" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CMD" type="LineEdit" parent="DEBUG"]
+margin_left = 3.0
+margin_top = 86.0
+margin_right = 164.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 6 )
+placeholder_text = "CMD"
+
+[node name="ENTER" type="Button" parent="DEBUG"]
+margin_left = 166.0
+margin_top = 85.0
+margin_right = 189.0
+margin_bottom = 105.0
+text = "E"
+
 [connection signal="timeout" from="tick" to="." method="_on_tick"]
+[connection signal="pressed" from="DEBUG/ENTER" to="." method="_on_ENTER_pressed"]
