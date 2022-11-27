@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/font/press_start_2P_shop.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/scenes/Shop/CoinCounter.gd" type="Script" id=2]
 [ext_resource path="res://src/scenes/Shop/Shop.gd" type="Script" id=4]
 
 [node name="Shop" type="CanvasLayer"]
@@ -92,5 +93,17 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_fonts/font = ExtResource( 1 )
 text = "back"
+
+[node name="CoinCounter" type="Label" parent="."]
+margin_left = 125.0
+margin_top = 2.0
+margin_right = 165.0
+margin_bottom = 16.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 2
+script = ExtResource( 2 )
 
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_BackButton_pressed"]
