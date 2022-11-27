@@ -260,4 +260,5 @@ parameters/run/blend_position = Vector2( 0, 0 )
 [node name="SpaceIcon" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -33 )
+z_index = 2
 texture = ExtResource( 2 )

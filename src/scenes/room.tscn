@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/room/Room_Builder_free_16x16.png" type="Texture" id=1]
 [ext_resource path="res://src/player/player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,12 @@
 [ext_resource path="res://src/interactables/computer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/effects/transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/shaders/outline.tres" type="Shader" id=8]
+[ext_resource path="res://src/furniture/desk.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/furniture/couch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/furniture/plant.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/furniture/lamp.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/furniture/little_couch.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/furniture/small_plant.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 8 )
@@ -862,18 +868,6 @@ extents = Vector2( 16, 10 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 12, 10 )
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 7, 2 )
-
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 6, 2 )
-
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 4, 5 )
-
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 8, 7 )
-
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 56, 32 )
 
@@ -884,9 +878,33 @@ scale = Vector2( 0.5, 0.5 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+[node name="SmallPlant2" parent="." instance=ExtResource( 14 )]
+position = Vector2( -40, -52 )
+
+[node name="SmallPlant" parent="." instance=ExtResource( 14 )]
+position = Vector2( 84, -52 )
+
+[node name="Lamp2" parent="." instance=ExtResource( 12 )]
+position = Vector2( -4, -4 )
+
+[node name="Lamp" parent="." instance=ExtResource( 12 )]
+position = Vector2( -88, 36 )
+
+[node name="Plant" parent="." instance=ExtResource( 11 )]
+position = Vector2( 82, -6 )
+
+[node name="LittleCouch" parent="." instance=ExtResource( 13 )]
+position = Vector2( 66, -34 )
+
+[node name="Desk" parent="." instance=ExtResource( 9 )]
+position = Vector2( -30, 30 )
+
+[node name="Couch" parent="." instance=ExtResource( 10 )]
+position = Vector2( 34, -16 )
+
 [node name="BalconyDoor" parent="." instance=ExtResource( 4 )]
 material = SubResource( 3 )
-position = Vector2( 16, 17 )
+position = Vector2( 16, 30 )
 
 [node name="Bed" parent="." instance=ExtResource( 5 )]
 material = SubResource( 4 )
@@ -902,15 +920,16 @@ tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 65536, 16, 0, 65537, 10, 0, 65538, 10, 0, 65539, 10, 0, 65540, 10, 0, 65541, 10, 0, 65542, 10, 0, 65543, 10, 0, 65544, 10, 0, 65545, 10, 0, 65546, 10, 0, 65547, 10, 0, 131072, 18, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 9, 0, 131083, 9, 0, 196608, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 196612, 6, 0, 196613, 6, 0, 196614, 6, 0, 196615, 6, 0, 196616, 6, 0, 196617, 6, 0, 196618, 6, 0, 196619, 6, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 8, 0, 262150, 8, 0, 262151, 8, 0, 262152, 8, 0, 262153, 8, 0, 262154, 8, 0, 262155, 8, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 8, 0, 327686, 8, 0, 327687, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 8, 0, 327691, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 8, 0, 393224, 8, 0, 393225, 8, 0, 393226, 8, 0, 393227, 8, 0, 458752, 8, 0, 458753, 8, 0, 458754, 8, 0, 458755, 8, 0, 458756, 8, 0, 458757, 16, 0, 458758, 8, 0, 458759, 8, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 17, 0, 524288, 8, 0, 524289, 8, 0, 524290, 8, 0, 524291, 8, 0, 524292, 8, 0, 524293, 18, 0, 524294, 7, 0, 524295, 7, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 19, 0, 589824, 8, 0, 589825, 8, 0, 589826, 8, 0, 589827, 8, 0, 589828, 8, 0, 589829, 20, 0, 589830, 20, 0, 589831, 20, 0, 589832, 20, 0, 589833, 20, 0, 589834, 20, 0, 589835, 21, 0, 655360, 8, 0, 655361, 8, 0, 655362, 8, 0, 655363, 8, 0, 655364, 8, 0, 655365, 25, 0, 655366, 25, 0, 655367, 25, 0, 655368, 25, 0, 655369, 25, 0, 655370, 25, 0, 655371, 24, 0, 720896, 16, 0, 720897, 10, 0, 720898, 10, 0, 720899, 10, 0, 720900, 17, 0, 720901, 25, 0, 720902, 25, 0, 720903, 25, 0, 720904, 25, 0, 720905, 25, 0, 720906, 25, 0, 720907, 24, 0, 786432, 18, 0, 786433, 9, 0, 786434, 9, 0, 786435, 9, 0, 786436, 19, 0, 786437, 22, 0, 786438, 22, 0, 786439, 22, 0, 786440, 22, 0, 786441, 22, 0, 786442, 22, 0, 786443, 23, 0 )
+tile_data = PoolIntArray( 65536, 16, 0, 65537, 10, 0, 65538, 10, 0, 65539, 10, 0, 65540, 10, 0, 65541, 10, 0, 65542, 10, 0, 65543, 10, 0, 65544, 10, 0, 65545, 10, 0, 65546, 10, 0, 65547, 10, 0, 131072, 18, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 9, 0, 131083, 9, 0, 196608, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 196612, 6, 0, 196613, 6, 0, 196614, 6, 0, 196615, 6, 0, 196616, 6, 0, 196617, 6, 0, 196618, 6, 0, 196619, 6, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 8, 0, 262148, 8, 0, 262149, 8, 0, 262150, 8, 0, 262151, 8, 0, 262152, 8, 0, 262153, 8, 0, 262154, 8, 0, 262155, 8, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 8, 0, 327686, 8, 0, 327687, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 8, 0, 327691, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 8, 0, 393224, 8, 0, 393225, 8, 0, 393226, 8, 0, 393227, 8, 0, 458752, 8, 0, 458753, 8, 0, 458754, 8, 0, 458755, 8, 0, 458756, 8, 0, 458758, 8, 0, 458759, 8, 0, 524288, 8, 0, 524289, 8, 0, 524290, 8, 0, 524291, 8, 0, 524292, 8, 0, 524294, 7, 0, 524295, 7, 0, 589824, 8, 0, 589825, 8, 0, 589826, 8, 0, 589827, 8, 0, 589828, 8, 0, 589829, 20, 0, 589830, 20, 0, 589831, 20, 0, 589832, 20, 0, 589833, 20, 0, 589834, 20, 0, 589835, 21, 0, 655360, 8, 0, 655361, 8, 0, 655362, 8, 0, 655363, 8, 0, 655364, 8, 0, 655365, 25, 0, 655366, 25, 0, 655367, 25, 0, 655368, 25, 0, 655369, 25, 0, 655370, 25, 0, 655371, 24, 0, 720901, 25, 0, 720902, 25, 0, 720903, 25, 0, 720904, 25, 0, 720905, 25, 0, 720906, 25, 0, 720907, 24, 0, 786432, 18, 0, 786433, 9, 0, 786434, 9, 0, 786435, 9, 0, 786436, 19, 0, 786437, 22, 0, 786438, 22, 0, 786439, 22, 0, 786440, 22, 0, 786441, 22, 0, 786442, 22, 0, 786443, 23, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 position = Vector2( -96, -113 )
+z_index = 1
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 131071, 11, 0, 65548, 12, 0, 196607, 11, 0, 131084, 12, 0, 262143, 11, 0, 196620, 12, 0, 327679, 11, 0, 262156, 12, 0, 393215, 11, 0, 327692, 12, 0, 458751, 11, 0, 393228, 12, 0, 524287, 11, 0, 458757, 12, 0, 458758, 13, 0, 458759, 13, 0, 458764, 15, 0, 589823, 11, 0, 524293, 12, 0, 655359, 11, 0, 589829, 12, 0, 720895, 11, 0, 655365, 12, 0, 786431, 14, 0, 720901, 15, 0 )
+tile_data = PoolIntArray( 131071, 11, 0, 65548, 12, 0, 196607, 11, 0, 131084, 12, 0, 262143, 11, 0, 196620, 12, 0, 327679, 11, 0, 262156, 12, 0, 393215, 11, 0, 327692, 12, 0, 458751, 11, 0, 393228, 12, 0, 524287, 11, 0, 458757, 16, 0, 458758, 13, 0, 458759, 13, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 17, 0, 458764, 15, 0, 589823, 11, 0, 524293, 18, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 19, 0, 655359, 11, 0, 589829, 12, 0, 720895, 11, 0, 655365, 12, 0, 786431, 14, 0, 720896, 16, 0, 720897, 10, 0, 720898, 10, 0, 720899, 10, 0, 720900, 17, 0, 720901, 15, 0 )
 
 [node name="Furniture" type="TileMap" parent="."]
 position = Vector2( -96, -113 )
@@ -919,7 +938,7 @@ cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 65536, 19, 0, 65540, 29, 0, 65543, 4, 0, 131075, 10, 0, 131079, 20, 0, 131081, 16, 0, 131083, 10, 0, 196608, 23, 0, 262144, 28, 0, 262145, 2, 0, 262149, 13, 0, 262150, 0, 0, 262151, 27, 0, 262154, 31, 0, 327690, 9, 0, 393216, 12, 0, 458761, 18, 0, 524291, 32, 0, 524296, 10, 0, 524298, 11, 0, 589828, 8, 0, 655365, 11, 0, 786437, 34, 0, 786438, 34, 0, 786439, 34, 0, 786440, 34, 0, 786441, 34, 0, 786442, 34, 0, 786443, 34, 0 )
+tile_data = PoolIntArray( 65536, 19, 0, 65540, 29, 0, 65543, 4, 0, 131079, 20, 0, 131081, 16, 0, 196608, 23, 0, 262144, 28, 0, 262145, 2, 0, 262150, 0, 0, 262151, 27, 0, 458761, 18, 0, 589828, 8, 0, 589833, 10, 0, 589835, 10, 0, 655365, 11, 0, 786437, 34, 0, 786438, 34, 0, 786439, 34, 0, 786440, 34, 0, 786441, 34, 0, 786442, 34, 0, 786443, 34, 0 )
 
 [node name="Player" parent="Furniture" instance=ExtResource( 2 )]
 position = Vector2( 69, 69 )
@@ -927,6 +946,11 @@ collision_mask = 7
 
 [node name="Boundary" type="StaticBody2D" parent="."]
 collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
+visible = false
+polygon = PoolVector2Array( 96, -64, 96, -96, -116, -96, -116, 94, 150, 94, 150, -98, 96, -98, 96, 30, -10, 30, -10, 82, -96, 82, -96, -64 )
+disabled = true
 
 [node name="CS2D01" type="CollisionShape2D" parent="Boundary"]
 position = Vector2( -104, -5 )
@@ -960,23 +984,7 @@ shape = SubResource( 12 )
 position = Vector2( -64, -66 )
 shape = SubResource( 13 )
 
-[node name="CS2D09" type="CollisionShape2D" parent="Boundary"]
-position = Vector2( -9, -12 )
-shape = SubResource( 14 )
-
-[node name="CS2D10" type="CollisionShape2D" parent="Boundary"]
-position = Vector2( -88, 20 )
-shape = SubResource( 15 )
-
-[node name="CS2D11" type="CollisionShape2D" parent="Boundary"]
-position = Vector2( 80, -15 )
-shape = SubResource( 16 )
-
-[node name="CS2D12" type="CollisionShape2D" parent="Boundary"]
-position = Vector2( 72, -41 )
-shape = SubResource( 17 )
-
-[node name="CS2D13" type="CollisionShape2D" parent="Boundary"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary"]
 position = Vector2( 40, 60 )
 shape = SubResource( 18 )
 
