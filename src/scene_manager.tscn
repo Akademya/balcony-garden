@@ -17,6 +17,7 @@ script = ExtResource( 1 )
 [node name="HUD" type="Node" parent="."]
 
 [node name="GlobalHUD" type="CanvasLayer" parent="HUD"]
+layer = -1
 
 [node name="CoinsTexture" type="TextureRect" parent="HUD/GlobalHUD"]
 margin_left = 181.0
