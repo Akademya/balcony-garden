@@ -55,5 +55,7 @@ class Item:
 	
 	func _init(texture, id: String, quantity: int, name: String):
 		self.texture = texture
-		
+		self.id = id
+		self.quantity = quantity
+		self.name = name
 	
