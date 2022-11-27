@@ -1,8 +1,8 @@
-extends Control
+extends CanvasLayer
 
 onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
-onready var seeds_container = $MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxContainer
-onready var drinks_container = $MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxContainer
+onready var seeds_container = $Control/MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxContainer
+onready var drinks_container = $Control/MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxContainer
 onready var shop_item_scene = preload("res://src/scenes/Shop/ShopHBox.tscn")
 # onready var inv_itemcont = inventory_scene.get_child(7)
 
@@ -88,7 +88,8 @@ func _ready():
 	# instance shop item scenes in the shop ui for every item in shop_items
 	for i in shop_items.seeds:
 		var hboxcontainer: Node = shop_item_scene.instance();
-		$MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxContainer.add_child(hboxcontainer)
+		$Control/MarginContainer/TabContainer/Seeds/ScrollContainer/VBoxContainer.add_child(hboxcontainer)
+		# THIS IS AWFUL, U SHOULD BE ASHAMED ^ + U ALREADY DECLARED EM IN HEADERS... NO TIME TO FIX :|||
 		hboxcontainer.get_node("ItemIcon").texture = i.texture
 		hboxcontainer.get_node("ItemName").text = i.text
 		hboxcontainer.get_node("ButtonSell").text = "Sell $" + String(i.sell_price) 
@@ -100,7 +101,7 @@ func _ready():
 	
 	for i in shop_items.drinks:
 		var hboxcontainer: Node = shop_item_scene.instance();
-		$MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxContainer.add_child(hboxcontainer)
+		$Control/MarginContainer/TabContainer/Drinks/ScrollContainer/VBoxContainer.add_child(hboxcontainer)
 		hboxcontainer.get_node("ItemIcon").texture = i.texture
 		hboxcontainer.get_node("ItemName").text = i.text
 		hboxcontainer.get_node("ButtonSell").text = "Sell $" + String(i.sell_price) 
