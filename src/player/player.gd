@@ -11,6 +11,9 @@ var direction : Vector2
 var target : Vector2
 var last_direction: Vector2
 
+func _ready() -> void:
+	self.global_position = GameState.player_position
+
 func find_path(mouse_pos): 
 	target = mouse_pos
 	direction = (mouse_pos - self.global_position).normalized()
@@ -28,6 +31,9 @@ func _input(event: InputEvent) -> void:
 		interact()
 
 func _physics_process(_delta: float) -> void:
+	# save player pos
+	GameState.player_position = self.global_position
+	
 	# animate
 	if velocity != Vector2.ZERO:
 		animationTree.set("parameters/idle/blend_position", velocity)

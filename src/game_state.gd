@@ -1,5 +1,6 @@
 extends Node
 
+var player_position : Vector2 = Vector2(69, 69)
 var global_money = 15
 
 var inventory: Array = []

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/room/Room_Builder_free_16x16.png" type="Texture" id=1]
 [ext_resource path="res://src/player/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/interactables/balcony_door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/interactables/bed.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/interactables/computer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/effects/transition.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 1/name = "Room_Builder_free_16x16.png 1"
@@ -851,7 +852,7 @@ format = 1
 tile_data = PoolIntArray( 65536, 19, 0, 65540, 29, 0, 65543, 4, 0, 131075, 10, 0, 131079, 20, 0, 131081, 16, 0, 131083, 10, 0, 196608, 23, 0, 262144, 28, 0, 262145, 2, 0, 262149, 13, 0, 262150, 0, 0, 262151, 27, 0, 262154, 31, 0, 327690, 9, 0, 393216, 12, 0, 458761, 18, 0, 524291, 32, 0, 524296, 10, 0, 524298, 11, 0, 589828, 8, 0, 655365, 11, 0, 786437, 34, 0, 786438, 34, 0, 786439, 34, 0, 786440, 34, 0, 786441, 34, 0, 786442, 34, 0, 786443, 34, 0 )
 
 [node name="Player" parent="Furniture" instance=ExtResource( 2 )]
-position = Vector2( 68, 69 )
+position = Vector2( 69, 69 )
 collision_mask = 7
 
 [node name="Boundary" type="StaticBody2D" parent="."]
@@ -859,3 +860,11 @@ collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
 polygon = PoolVector2Array( 96, -64, 96, -96, -116, -96, -116, 94, 150, 94, 150, -98, 96, -98, 96, 30, -10, 30, -10, 82, -96, 82, -96, -64 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transition" parent="CanvasLayer" instance=ExtResource( 7 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0

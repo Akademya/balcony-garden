@@ -111,4 +111,7 @@ func _process(delta):
 
 func _on_ArbitraryButton_pressed(id, type):
 	print(id, " ", type)
-	
+
+func _on_BackButton_pressed() -> void:
+	if get_tree().get_nodes_in_group("SceneManager")[0].has_method("load_scene"):
+		get_tree().get_nodes_in_group("SceneManager")[0].load_scene("room_scene")
