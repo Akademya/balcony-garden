@@ -15,6 +15,7 @@ var last_direction: Vector2
 
 func _ready() -> void:
 	self.global_position = GameState.player_position
+	$Timer.connect("timeout", self, "_on_TimerEat_timeout")
 
 func find_path(mouse_pos): 
 	target = mouse_pos
@@ -59,6 +60,11 @@ func _physics_process(_delta: float) -> void:
 
 func try_eat():
 	if (GameState.item_in_hand != null && FLA.comestible.has(GameState.item_in_hand.id)):
+		
+		scene_manager.get_node("AudioStreamPlayerEating").play()
+		$Timer.wait_time = 2
+		$Timer.start()
+		
 		var item = GameState.item_in_hand
 		if (item["quantity"] > 1):
 			item["quantity"] -= 1
@@ -82,3 +88,6 @@ func try_eat():
 		)
 			
 		GameState.add_to_inv(itm)
+
+func _on_TimerEat_timeout():
+	scene_manager.get_node("AudioStreamPlayerEating").stop()

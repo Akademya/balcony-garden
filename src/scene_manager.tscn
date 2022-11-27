@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scene_manager.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/grasslands.wav" type="AudioStream" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/in_hand.png" type="Texture" id=9]
 [ext_resource path="res://src/HUD/ITEM.gd" type="Script" id=10]
 [ext_resource path="res://assets/sounds/watering-the-garden-6715.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/eating-apple-6928.mp3" type="AudioStream" id=12]
 
 [node name="SceneManager" type="Node" groups=["SceneManager"]]
 script = ExtResource( 1 )
@@ -85,6 +86,9 @@ pitch_scale = 0.2
 
 [node name="AudioStreamPlayerWatering" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+
+[node name="AudioStreamPlayerEating" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 
 [node name="DEBUG" type="CanvasLayer" parent="."]
 visible = false

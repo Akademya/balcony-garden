@@ -292,6 +292,7 @@ stretch_mode = 5
 flip_h = true
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="mouse_entered" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_exited"]
