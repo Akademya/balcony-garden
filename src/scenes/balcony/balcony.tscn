@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://assets/balcony/watering_can.png" type="Texture" id=1]
 [ext_resource path="res://assets/balcony/composter.png" type="Texture" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://assets/balcony/bar.png" type="Texture" id=14]
 [ext_resource path="res://assets/balcony/wcmf.png" type="Texture" id=15]
 [ext_resource path="res://assets/balcony/wcmf_indicator.png" type="Texture" id=16]
+[ext_resource path="res://assets/balcony/HUD/back_btn/back_hover.png" type="Texture" id=17]
+[ext_resource path="res://assets/balcony/HUD/back_btn/back.png" type="Texture" id=18]
+[ext_resource path="res://assets/balcony/HUD/back_btn/back_pressed.png" type="Texture" id=19]
+[ext_resource path="res://src/scenes/balcony/UI/back_btn.gd" type="Script" id=20]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -78,6 +82,15 @@ shader_param/is_on = false
 [sub_resource type="ShaderMaterial" id=15]
 
 [sub_resource type="ShaderMaterial" id=16]
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = ExtResource( 13 )
+shader_param/color = Plane( 1, 1, 1, 1 )
+shader_param/width = 1.5
+shader_param/pattern = 2
+shader_param/inside = false
+shader_param/add_margins = true
+shader_param/is_on = false
 
 [sub_resource type="Shader" id=17]
 code = "shader_type canvas_item;
@@ -231,7 +244,29 @@ position = Vector2( 136, 44 )
 [node name="Sprite" type="Sprite" parent="Sprites/PlantPos06"]
 material = SubResource( 16 )
 
+[node name="CursorFollower" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.3, 0.3 )
+z_index = 100
+texture = ExtResource( 15 )
+offset = Vector2( -10, -5 )
+
+[node name="PBHCanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="LocalHud" type="CanvasLayer" parent="."]
+
+[node name="back_btn" type="TextureButton" parent="LocalHud"]
+material = SubResource( 22 )
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 26.0
+margin_bottom = 25.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 17 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 20 )
 
 [node name="WaterIndicator" type="TextureRect" parent="LocalHud"]
 material = SubResource( 18 )
@@ -258,15 +293,6 @@ expand = true
 stretch_mode = 5
 flip_h = true
 
-[node name="PBHCanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CursorFollower" type="Sprite" parent="."]
-visible = false
-scale = Vector2( 0.3, 0.3 )
-z_index = 100
-texture = ExtResource( 15 )
-offset = Vector2( -10, -5 )
-
 [connection signal="mouse_entered" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/CoArea2D" to="Sprites/CoArea2D" method="_on_CoArea2D_mouse_exited"]
 [connection signal="mouse_entered" from="Sprites/BArea2D" to="Sprites/BArea2D" method="_on_BArea2D_mouse_entered"]
@@ -277,3 +303,6 @@ offset = Vector2( -10, -5 )
 [connection signal="mouse_exited" from="Sprites/PArea2D" to="Sprites/PArea2D" method="_on_PArea2D_mouse_exited"]
 [connection signal="mouse_entered" from="Sprites/WCArea2D" to="Sprites/WCArea2D" method="_on_WCArea2D_mouse_entered"]
 [connection signal="mouse_exited" from="Sprites/WCArea2D" to="Sprites/WCArea2D" method="_on_WCArea2D_mouse_exited"]
+[connection signal="mouse_entered" from="LocalHud/back_btn" to="LocalHud/back_btn" method="_on_back_btn_mouse_entered"]
+[connection signal="mouse_exited" from="LocalHud/back_btn" to="LocalHud/back_btn" method="_on_back_btn_mouse_exited"]
+[connection signal="pressed" from="LocalHud/back_btn" to="." method="_on_back_btn_pressed"]

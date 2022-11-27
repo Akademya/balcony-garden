@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var balcony = get_tree().get_nodes_in_group("Balcony")[0]
+onready var balcony = get_parent().get_parent()
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
