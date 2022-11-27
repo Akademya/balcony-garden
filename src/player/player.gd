@@ -28,9 +28,11 @@ func interact():
 		interactable.use()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		
-		find_path(get_viewport().get_mouse_position())
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		if event.position.distance_to(self.global_position) < 10: 
+			print("UgaBuga")
+		else:
+			find_path(get_viewport().get_mouse_position())
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		interact()
