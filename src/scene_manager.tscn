@@ -36,6 +36,7 @@ margin_left = 135.0
 margin_top = 94.0
 margin_right = 180.0
 margin_bottom = 105.0
+custom_colors/font_color = Color( 0.372549, 0.372549, 0.372549, 1 )
 custom_fonts/font = ExtResource( 6 )
 text = "0000"
 align = 2
