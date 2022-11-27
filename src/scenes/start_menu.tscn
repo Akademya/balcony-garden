@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/start_menu/isometric_balcony.png" type="Texture" id=1]
 [ext_resource path="res://assets/font/press_start_2P_start_menu.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/scenes/start_menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/sounds/confirm.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sounds/select.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/balcony/HUD/back_btn/back_hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/balcony/HUD/back_btn/back.png" type="Texture" id=7]
+[ext_resource path="res://assets/balcony/HUD/back_btn/back_pressed.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -42,7 +45,29 @@ Garden"
 align = 1
 valign = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="TitleOptions" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 95.0
+margin_top = 31.0
+margin_right = 207.0
+margin_bottom = 47.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+
+[node name="ButtonBack" type="TextureButton" parent="CanvasLayer"]
+visible = false
+margin_left = 169.0
+margin_top = 6.0
+margin_right = 201.0
+margin_bottom = 38.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 6 )
+
+[node name="VBoxContainerMainMenu" type="VBoxContainer" parent="CanvasLayer"]
 margin_left = 107.0
 margin_top = 45.0
 margin_right = 247.0
@@ -51,25 +76,25 @@ rect_scale = Vector2( 0.5, 0.5 )
 custom_constants/separation = 5
 alignment = 1
 
-[node name="HBoxContainerStart" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainerStart" type="HBoxContainer" parent="CanvasLayer/VBoxContainerMainMenu"]
 margin_top = 11.0
 margin_right = 140.0
 margin_bottom = 33.0
 custom_constants/separation = 0
 
-[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
+[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerStart"]
 margin_top = 4.0
 margin_right = 16.0
 margin_bottom = 18.0
 text = "    "
 
-[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
+[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerStart"]
 visible = false
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = ">"
 
-[node name="ButtonStart" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerStart"]
+[node name="ButtonStart" type="Button" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerStart"]
 margin_left = 16.0
 margin_right = 108.0
 margin_bottom = 22.0
@@ -83,25 +108,57 @@ enabled_focus_mode = 0
 text = "Start"
 flat = true
 
-[node name="HBoxContainerExit" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="HBoxContainerOptions" type="HBoxContainer" parent="CanvasLayer/VBoxContainerMainMenu"]
 margin_top = 38.0
 margin_right = 140.0
 margin_bottom = 60.0
 custom_constants/separation = 0
 
-[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
+[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerOptions"]
 margin_top = 4.0
 margin_right = 16.0
 margin_bottom = 18.0
 text = "    "
 
-[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
+[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerOptions"]
 visible = false
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = ">"
 
-[node name="ButtonExit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerExit"]
+[node name="ButtonOptions" type="Button" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerOptions"]
+margin_left = 16.0
+margin_right = 140.0
+margin_bottom = 22.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = SubResource( 1 )
+enabled_focus_mode = 0
+text = "Options"
+flat = true
+
+[node name="HBoxContainerExit" type="HBoxContainer" parent="CanvasLayer/VBoxContainerMainMenu"]
+margin_top = 65.0
+margin_right = 140.0
+margin_bottom = 87.0
+custom_constants/separation = 0
+
+[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerExit"]
+margin_top = 4.0
+margin_right = 16.0
+margin_bottom = 18.0
+text = "    "
+
+[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerExit"]
+visible = false
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = ">"
+
+[node name="ButtonExit" type="Button" parent="CanvasLayer/VBoxContainerMainMenu/HBoxContainerExit"]
 margin_left = 16.0
 margin_right = 92.0
 margin_bottom = 22.0
@@ -115,37 +172,52 @@ enabled_focus_mode = 0
 text = "Exit"
 flat = true
 
-[node name="HBoxContainerOptions" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
-margin_top = 65.0
-margin_right = 140.0
-margin_bottom = 87.0
+[node name="VBoxContainerOptionsMenu" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+margin_left = 82.0
+margin_top = 51.0
+margin_right = 318.0
+margin_bottom = 103.0
+rect_scale = Vector2( 0.5, 0.5 )
+
+[node name="HBoxContainerToggleMusic" type="HBoxContainer" parent="CanvasLayer/VBoxContainerOptionsMenu"]
+margin_right = 236.0
+margin_bottom = 24.0
 custom_constants/separation = 0
 
-[node name="Padding" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerOptions"]
-margin_top = 4.0
-margin_right = 16.0
-margin_bottom = 18.0
-text = "    "
-
-[node name="Arrow" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainerOptions"]
-visible = false
-custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
-custom_fonts/font = ExtResource( 2 )
-text = ">"
-
-[node name="ButtonOptions" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainerOptions"]
-margin_left = 16.0
-margin_right = 140.0
-margin_bottom = 22.0
+[node name="CheckBoxMusic" type="CheckBox" parent="CanvasLayer/VBoxContainerOptionsMenu/HBoxContainerToggleMusic"]
+margin_right = 220.0
+margin_bottom = 24.0
 focus_mode = 0
+custom_colors/font_color_disabled = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_focus = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_colors/font_color_pressed = Color( 0.219608, 0.219608, 0.219608, 1 )
 custom_fonts/font = ExtResource( 2 )
-custom_styles/focus = SubResource( 1 )
-enabled_focus_mode = 0
-text = "Options"
-flat = true
+pressed = true
+text = "Toggle Music"
+
+[node name="HBoxContainerToggleSFX" type="HBoxContainer" parent="CanvasLayer/VBoxContainerOptionsMenu"]
+margin_top = 28.0
+margin_right = 236.0
+margin_bottom = 52.0
+custom_constants/separation = 0
+
+[node name="CheckBoxSFX" type="CheckBox" parent="CanvasLayer/VBoxContainerOptionsMenu/HBoxContainerToggleSFX"]
+margin_right = 188.0
+margin_bottom = 24.0
+focus_mode = 0
+custom_colors/font_color_disabled = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_focus = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_hover = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_colors/font_color_pressed = Color( 0.219608, 0.219608, 0.219608, 1 )
+custom_fonts/font = ExtResource( 2 )
+pressed = true
+text = "Toggle SFX"
 
 [node name="AudioStreamPlayerSelect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
