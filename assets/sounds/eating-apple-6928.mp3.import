@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/eating-apple-6928.mp3-407c5147756f8baf56235ae8e9c869e9.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/eating-apple-6928.mp3"
+dest_files=[ "res://.import/eating-apple-6928.mp3-407c5147756f8baf56235ae8e9c869e9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
