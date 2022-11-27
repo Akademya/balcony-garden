@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var scene_manager = get_tree().get_nodes_in_group("SceneManager")[0]
+
 var interactable : Node
 onready var animationTree = $AnimationTree
 onready var spaceSprite = $SpaceIcon
@@ -21,6 +23,8 @@ func find_path(mouse_pos):
 
 func interact():
 	if interactable and interactable.has_method("use"):
+		if GameState.toggle_SFX:
+			scene_manager.get_node("AudioStreamPlayerConfirm").play()
 		interactable.use()
 
 func _input(event: InputEvent) -> void:
@@ -37,6 +41,8 @@ func _physics_process(_delta: float) -> void:
 	
 	# animate
 	if velocity != Vector2.ZERO:
+		if GameState.toggle_SFX:
+			scene_manager.get_node("AudioStreamPlayerWalk").play()
 		animationTree.set("parameters/idle/blend_position", velocity)
 		animationTree.set("parameters/run/blend_position", velocity)
 		animationState.travel("run")
