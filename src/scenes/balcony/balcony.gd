@@ -75,3 +75,8 @@ func _process(delta):
 				water_in_can * 25, 5 * delta
 			)
 	)
+
+
+func _on_back_btn_pressed():
+	scene_manager.focused_game = false
+	scene_manager.load_scene("room_scene")

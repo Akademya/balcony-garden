@@ -17,9 +17,11 @@ A simple game made for unihack eu (Timisoara)
 - - [ ] UI
 - - [ ] Interactions
 - [ ] Balcony Room ! - Osaki
+- - [ ] UI
+- - - [X] Water Level
+- - - [X] Back Btn
 - - [X] Barrel
 - - [X] Watering Can
-- - [X] Water Level
 - - [X] Plants
 - - - [ ] Change Plants
 - - - [ ] Cultivate Plants
