@@ -64,7 +64,7 @@ stretch_mode = 5
 script = ExtResource( 10 )
 
 [node name="tick" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.25
 autostart = true
 
 [node name="AudioStreamPlayerBGMusic" type="AudioStreamPlayer" parent="."]
