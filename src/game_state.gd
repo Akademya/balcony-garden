@@ -1,7 +1,7 @@
 extends Node
 
 var player_position : Vector2 = Vector2(69, 69)
-var global_money = 15
+var global_money = 55
 
 var toggle_music: bool = true
 var toggle_SFX: bool = true
@@ -78,3 +78,17 @@ func add_to_inv(item: Utils.Item):
 			i["quantity"] += item["quantity"]
 			return
 	inventory.append(item)
+
+func remove_from_inv(rem_item: Utils.Item):
+	var i = 0
+	while i < inventory.size():
+#		for t_item in inventory:
+#			print(t_item.id)
+		var item = inventory[i]
+		if item.id == rem_item.id:
+			if item.quantity > 1:
+				item.quantity -= 1
+			elif item.quantity == 1:
+				inventory.remove(i)
+				i -= 1
+		i += 1
