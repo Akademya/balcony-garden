@@ -112,36 +112,35 @@ func _ready():
 		hboxcontainer.item = i
 		hboxcontainer.buy_price = i.buy_price
 		hboxcontainer.connect("ArbitraryButton_pressed", self, "_on_ArbitraryButton_pressed")
-	check_buttons()
 
-func check_buttons():
-	print(GameState.global_money)
-	for i in seeds_container.get_children():
-		var is_sell_pos: bool = false
-		var button_sell = i.get_node("ButtonSell")
-		var button_buy = i.get_node("ButtonBuy")
-		var button_sell_price = i.sell_price
-		var button_buy_price = i.buy_price
-		
-		# check buy buttons <EASY AS HELL>
-		if button_buy_price > GameState.global_money:
-			button_buy.disabled = true
-		
-		# check sell buttons <HARD AS HELL>
-		for j in GameState.inventory:
-			if j.id == i.item.id:
-				is_sell_pos = true
-		if is_sell_pos == true:
-			button_sell.disabled = false
-		else:
-			button_sell.disabled = true
-	
-	for i in drinks_container.get_children():
-		var button_buy = i.get_node("ButtonBuy")
-		var button_buy_price = i.buy_price
-		if button_buy_price > GameState.global_money:
-			button_buy.disabled = true
-	
+#func check_buttons():
+#	print(GameState.global_money)
+#	for i in seeds_container.get_children():
+#		var is_sell_pos: bool = false
+#		var button_sell = i.get_node("ButtonSell")
+#		var button_buy = i.get_node("ButtonBuy")
+#		var button_sell_price = i.sell_price
+#		var button_buy_price = i.buy_price
+#
+#		# check buy buttons <EASY AS HELL>
+#		if button_buy_price > GameState.global_money:
+#			button_buy.disabled = true
+#
+#		# check sell buttons <HARD AS HELL>
+#		for j in GameState.inventory:
+#			if j.id == i.item.id:
+#				is_sell_pos = true
+#		if is_sell_pos == true:
+#			button_sell.disabled = false
+#		else:
+#			button_sell.disabled = true
+#
+#	for i in drinks_container.get_children():
+#		var button_buy = i.get_node("ButtonBuy")
+#		var button_buy_price = i.buy_price
+#		if button_buy_price > GameState.global_money:
+#			button_buy.disabled = true
+#
 func _on_ArbitraryButton_pressed(item, type):
 	if (type == "buy"):
 		if (GameState.global_money >= item.buy_price):
@@ -152,13 +151,12 @@ func _on_ArbitraryButton_pressed(item, type):
 		for i in GameState.inventory:
 			if i.id == item.id:
 				GameState.global_money += item.sell_price
-				check_buttons()
-				GameState.remove_from_inv(i)
-	
-	check_buttons()
+				if i.quantity > 1:
+					i.quantity -= 1
+				elif i.quantity == 1:
+					GameState.remove_from_inv(i.id)
 
 func _process(delta):
-	#check_buttons()
 	pass
 
 func _on_BackButton_pressed() -> void:
