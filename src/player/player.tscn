@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/player/Alex_16x16.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/space_icon.png" type="Texture" id=2]
 [ext_resource path="res://src/player/player.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -226,6 +227,11 @@ graph_offset = Vector2( -223, -115 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
+
+[node name="SpaceIcon" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -33 )
+texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )

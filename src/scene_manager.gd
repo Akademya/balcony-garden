@@ -40,7 +40,13 @@ func load_scene(scene_name: String):
 	unload_all_children()
 	var scene_instance = self[scene_name].instance()
 	scene_cont.add_child(scene_instance)
-	
+
+func load_balcony():
+	unload_all_children()
+	var b = balcony_scene.instance()
+	scene_cont.add_child(b)
+	in_game = true
+	focused_game = true
 
 func _ready():
 	unload_all_children()

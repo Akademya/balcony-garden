@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var interactable : Node
 onready var animationTree = $AnimationTree
+onready var spaceSprite = $SpaceIcon
 onready var animationState = animationTree.get("parameters/playback")
 
 var speed : int = 50

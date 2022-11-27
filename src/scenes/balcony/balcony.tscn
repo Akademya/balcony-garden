@@ -258,6 +258,8 @@ expand = true
 stretch_mode = 5
 flip_h = true
 
+[node name="PBHCanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="CursorFollower" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 0.3, 0.3 )
