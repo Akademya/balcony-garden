@@ -39,7 +39,7 @@ A simple game made for unihack eu (Timisoara)
 - - - [X] Grow Mechanic
 - - [X] Composter
 - - [X] Chest
-- [ ] Shop ! - Serbi
+- [X] Shop ! - Serbi
 - - [X] Buy
 - - [X] Sell
 - - [X] List
