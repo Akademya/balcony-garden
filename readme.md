@@ -13,5 +13,6 @@ A simple game made for unihack eu (Timisoara)
 - E to open inventory
 
 ### How to run the game:
-1. use web deployment hosted right here on github
-2. download and run the EXE file (WINDOWS)
+- > I. Use web deployment hosted right here on github
+
+- > II. Download and run the executable file (WIN and LINUX only)
