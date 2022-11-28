@@ -23,25 +23,25 @@ A simple game made for unihack eu (Timisoara)
 - [X] Main Menu ! - Serbi
 - - [X] Music Options !/? - ???
 - [X] Room Scene ! - Thomas
-- - [ ] Fix Collisions !
-- - [ ] UI
+- - [X] Fix Collisions !
+- - [X] UI
 - - [X] Interactions
-- - [ ] Z Index
-- [ ] Balcony Room ! - Osaki
-- - [ ] UI
+- - [X] Z Index
+- [X] Balcony Room ! - Osaki
+- - [X] UI
 - - - [X] Water Level
 - - - [X] Back Btn
 - - [X] Barrel
 - - [X] Watering Can
 - - [X] Plants
-- - - [ ] Change Plants
-- - - [ ] Cultivate Plants
+- - - [X] Change Plants
+- - - [X] Cultivate Plants
 - - - [X] Grow Mechanic
-- - [ ] Composter
-- - [ ] Chest
+- - [X] Composter
+- - [X] Chest
 - [ ] Shop ! - Serbi
 - - [X] Buy
-- - [ ] Sell
+- - [X] Sell
 - - [X] List
 - - - [X] UI
 - [X] Item System ! - All
