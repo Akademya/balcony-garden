@@ -7,7 +7,7 @@ A simple game made for unihack eu (Timisoara)
 - topic: education and health
 
 ###  Controls
-- LEFTCLICK (press and release) to move player
+- LEFTCLICK to move player
 - RIGHTCLICK on bins to recycle
 - SPACE to interact with objects
 - E to open inventory
