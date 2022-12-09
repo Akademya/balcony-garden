@@ -3,7 +3,7 @@
 
 A simple game made for unihack eu (Timisoara)
 
-- time: 24h
+- time: 48h
 - topic: education and health
 
 ###  Controls
